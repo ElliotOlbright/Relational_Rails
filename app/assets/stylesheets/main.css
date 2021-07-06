@@ -1,0 +1,40 @@
+
+body {
+  background-color: rgba(102, 189, 204, 0.486);
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+  font-size: 22;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px
+}
+
+.button:hover{
+  background-color: #555555;
+  color: white;
+}
+
+.button1 {background-color: #f5f5dc;} 
+.button2 {background-color: #f5f5dc;} 
