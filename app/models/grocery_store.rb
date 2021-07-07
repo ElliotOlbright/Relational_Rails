@@ -1,0 +1,2 @@
+class GroceryStore < ApplicationRecord
+end
