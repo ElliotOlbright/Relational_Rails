@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Car.destroy_all
-DealerShip.destroy_all
+Dealership.destroy_all
 
-dealer1 = DealerShip.create!(name: 'Dealer1', address: '4200 high st', open_weekends: true, years_open: 42)
-dealer2 = DealerShip.create!(name: 'Dealer2', address: '1234 fake st', open_weekends: true, years_open: 12)
-dealer3 = DealerShip.create!(name: 'Dealer3', address: '6969 date st', open_weekends: false, years_open: 69)
-dealer4 = DealerShip.create!(name: 'Dealer4', address: '2020 corona blvd', open_weekends: false, years_open: 20)
-dealer5 = DealerShip.create!(name: 'Dealer5', address: '1600 pennsylvania ave', open_weekends: true, years_open: 16)
-dealer6 = DealerShip.create!(name: 'Dealer6', address: '5050 chance cr', open_weekends: false, years_open: 50)
+dealer1 = Dealership.create!(name: 'Dealer1', address: '4200 high st', open_weekends: true, years_open: 42)
+dealer2 = Dealership.create!(name: 'Dealer2', address: '1234 fake st', open_weekends: true, years_open: 12)
+dealer3 = Dealership.create!(name: 'Dealer3', address: '6969 date st', open_weekends: false, years_open: 69)
+dealer4 = Dealership.create!(name: 'Dealer4', address: '2020 corona blvd', open_weekends: false, years_open: 20)
+dealer5 = Dealership.create!(name: 'Dealer5', address: '1600 pennsylvania ave', open_weekends: true, years_open: 16)
+dealer6 = Dealership.create!(name: 'Dealer6', address: '5050 chance cr', open_weekends: false, years_open: 50)
 
 dealer1.cars.create!(model: 'WRX', make: 'Subaru', year: 2013, under_100k_miles: true)
 dealer1.cars.create!(model: 'Outback', make: 'Subaru', year: 1998, under_100k_miles: false)
