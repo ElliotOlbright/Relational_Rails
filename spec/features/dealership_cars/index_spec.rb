@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe 'Cars index page' do 
-  it 'can see all cars models and make' do 
+describe 'Dealership Cars page' do 
+  it 'can see all dealership cars make and year' do 
     dealer1 = Dealership.create!(name: 'Dealer1', 
                                 address: '4200 high st', 
                                 open_weekends: true, 
                                 years_open: 42
                               )
-
+                      
     lambo = dealer1.cars.create!(model: 'diablo', 
                                 make: 'Lamborghini', 
                                 year: 2020, 
@@ -20,11 +20,11 @@ describe 'Cars index page' do
                                 under_100k_miles: true
                               )   
     
-    visit '/cars'
-    
+    visit "/dealerships/#{dealer1.id}/cars"
+save_and_open_page
+    expect(page).to have_content("Model: #{lambo.model}")
     expect(page).to have_content(lambo.make)
-    expect(page).to have_content("Year: #{lambo.year}")
-    expect(page).to have_content(r8.model)
-    expect(page).to have_content("Year: #{r8.year}")
+    expect(page).to have_content("Model: #{r8.model}")
+    expect(page).to have_content(r8.make)
   end 
 end 
