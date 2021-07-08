@@ -1,6 +1,12 @@
 <button class="button button2"><a href="/">Go to HomePage</a></button>
+<button class="button button2"><a href="/cars">Go to Cars</a></button>
+
 <h1>Dealership Index</h1>
+  
 
 <% @dealerships.each do |dealership| %>
-  <p><%= dealership.name %></p>
+  <h2><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %></a></h2>
+  <p><%= dealership.address %></p>
 <% end %>
+
+
