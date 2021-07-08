@@ -1,9 +1,11 @@
 <button class="button button2"><a href="/">Go to HomePage</a></button>
 <button class="button button2"><a href="/cars">Go to Cars</a></button>
 <button class="button button2"><a href="/dealerships">Go to Dealership</a></button>
+
 <h1>Dealership</h1>
 
-<h2><%= @dealership.name %></h2>
+
+<h2><a href="/dealerships/<%= @dealership.id %>/cars"><%= @dealership.name %></a></h2>
 <p> Address: <%= @dealership.address %></p>
 <p> Open on weekends: <%= @dealership.open_weekends %></p>
 <p> Established <%= @dealership.years_open %> years ago</p>
