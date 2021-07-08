@@ -1,4 +1,4 @@
-class ParentsController < ApplicationController
+class GroceryStoresController < ApplicationController
   def index
     @grocery_stores = GroceryStore.all
   end
