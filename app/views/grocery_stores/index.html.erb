@@ -4,5 +4,6 @@
 <h1>Grocery Stores Index</h1>
 
 <% @grocery_stores.each do |grocery_store| %>
-  <p><%= grocery_store.name %></p>
+  <h2><a href="/grocery_stores/<%= grocery_store.id %>"><%= grocery_store.name %></a></h2>
+  <p><%= grocery_store.address %></p>
 <% end %>
