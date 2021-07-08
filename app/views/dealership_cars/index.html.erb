@@ -1,0 +1,11 @@
+<h1>Dealership Cars Index</h1>
+
+<h2><%= @dealership.name %></h2>
+
+<% @cars.each do |car| %>
+  <h3> <%= car.model %></h3>
+  <p>Model: <%= car.model %></p>
+  <p>Make: <%= car.make %></p>
+  <p>Year: <%= car.year %></p>
+  <p>Under 100k miles:<%= car.under_100k_miles %></p>
+<% end %>
