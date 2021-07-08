@@ -1,0 +1,11 @@
+<h1>Parent child Index</h1>
+
+<h2><%= @dealership.name %></h2>
+
+<% @cars.each do |car| %>
+  <h2> <%= car.model %></h2>
+  <p><%= car.model %></p>
+  <p><%= car.make %></p>
+  <p><%= car.year %></p>
+  <p><%= car.under_100k_miles %></p>
+<% end %>
