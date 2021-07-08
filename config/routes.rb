@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
-  get '/parents', to: 'parents#index'
-  get '/parents/:id', to: 'parents#show'
-  get '/parents/:parent_id/child_table_name', to: 'parent_children#index'
+  get '/dealerships', to: 'dealerships#index'
+  get '/dealerships/:id', to: 'dealerships#show'
+  get '/dealerships/:dealership_id/cars', to: 'dealership_cars#index'
 
-  get '/child_table_name', to: 'children#index'
-  get '/child_table_name/:id', to: 'children#show'
+  get '/cars', to: 'cars#index'
+  get '/cars/:id', to: 'cars#show'
 end
