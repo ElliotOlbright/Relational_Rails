@@ -1,0 +1,11 @@
+<h1>Parent-Child Index</h1>
+
+<h2>Store: <%= @grocery_store.name %> </h2>
+
+<% @groceries.each do |grocery| %>
+  <h2> <%= grocery.name %> </h2>
+  <p>Price: <%= grocery.price %> </p>
+  <p>In Stock: <%= grocery.in_stock %> </p>
+  <p>Created at: <%= grocery.created_at %> </p>
+  <p>Updated at: <%= grocery.updated_at %> </p>
+<% end %>
