@@ -21,7 +21,7 @@ describe 'Dealership Cars page' do
                               )   
     
     visit "/dealerships/#{dealer1.id}/cars"
-save_and_open_page
+    
     expect(page).to have_content("Model: #{lambo.model}")
     expect(page).to have_content(lambo.make)
     expect(page).to have_content("Model: #{r8.model}")
