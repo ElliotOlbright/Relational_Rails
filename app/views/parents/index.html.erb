@@ -1,1 +1,5 @@
-<h1>Parents</h1>
+<h1>Parents Index</h1>
+
+<% @dealerships.each do |dealership| %>
+  <p><%= dealership.name %></p>
+<% end %>
