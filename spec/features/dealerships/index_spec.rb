@@ -19,18 +19,18 @@ describe 'Dealerships index page' do
     expect(page).to have_content(dealer1.name)
     expect(page).to have_content(dealer2.name)
   end 
-    it 'can take the user to the home page' do 
-      dealer1 = Dealership.create!(name: 'Dealer1', 
-        address: '4200 high st', 
-        open_weekends: true, 
-        years_open: 42
-      )
+  it 'can take the user to the home page' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
 
     dealer2 = Dealership.create!(name: 'Dealer2', 
-          address: '6925 ride st', 
-          open_weekends: false, 
-          years_open: 23
-        )
+                                address: '6925 ride st', 
+                                open_weekends: false, 
+                                years_open: 23
+                                )
 
     visit '/dealerships'
 
@@ -38,29 +38,47 @@ describe 'Dealerships index page' do
     
     click_link('Go to HomePage')
     expect(current_path).to eq('/')
+  end 
+
+  it 'can take the user to the home page' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    dealer2 = Dealership.create!(name: 'Dealer2', 
+                                address: '6925 ride st', 
+                                open_weekends: false, 
+                                years_open: 23
+                                )
+
+    visit '/dealerships'
+
+    expect(current_path).to eq('/dealerships')
 
     visit '/dealerships'
 
     click_link('Go to Cars')
     expect(current_path).to eq('/cars')
   end 
-  
+
   it 'can dislpay newest to oldest' do 
-    dealer1 = Dealership.create!(name: 'Dealer1', 
+    @dealer1 = Dealership.create!(name: 'Dealer1', 
       address: '4200 high st', 
       open_weekends: true, 
       years_open: 22,
       created_at: 'Tue, 06 Jul 2021 23:41:08 UTC +00:00'
     )
 
-    dealer2 = Dealership.create!(name: 'Dealer2', 
+    @dealer2 = Dealership.create!(name: 'Dealer2', 
       address: '6925 ride st', 
       open_weekends: false, 
       years_open: 23,
       created_at: 'Wed, 07 Jul 2021 23:41:08 UTC +00:00'
     )
 
-    dealer3 = Dealership.create!(name: 'Dealer2', 
+    @dealer3 = Dealership.create!(name: 'Dealer2', 
       address: '6925 ride st', 
       open_weekends: false, 
       years_open: 41,
@@ -69,17 +87,15 @@ describe 'Dealerships index page' do
 
     visit '/dealerships'
 
-    within("#dealership-#{dealer3.id}") do 
-      expect(page).to have_content(dealer3.name)
+    within("#dealerships") do 
+      
+      expect(all("#name")[0].text).to eq(@dealer3.name)
+      expect(all("#address")[0].text).to eq(@dealer3.address)
+      expect(all("#name")[1].text).to eq(@dealer2.name)
+      expect(all("#address")[1].text).to eq(@dealer2.address)
+      expect(all("#name")[2].text).to eq(@dealer1.name)
+      expect(all("#address")[2].text).to eq(@dealer1.address)
     end 
-
-    within("#dealership-#{dealer2.id}") do 
-      expect(page).to have_content(dealer2.name)
-    end 
-
-    within("#dealership-#{dealer1.id}") do 
-      expect(page).to have_content(dealer1.name)
-    end 
-    
   end
 end 
+
