@@ -1,6 +1,6 @@
 class GroceryStoresController < ApplicationController
   def index
-    @grocery_stores = GroceryStore.all
+    @grocery_stores = GroceryStore.order(created_at: :desc)
   end
 
   def show
