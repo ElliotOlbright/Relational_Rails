@@ -1,4 +1,4 @@
-#Delaership and Cars Seed
+#Dealership and Cars Seed
 Car.destroy_all
 Dealership.destroy_all
 
