@@ -4,8 +4,10 @@
 
 <h1>Grocery Store</h1>
 
-<h2><a href="/grocery_stores/<%= @grocery_store.id %>/groceries"><%= @grocery_store.name %></a></h2>
+<h2> <%= @grocery_store.name %> </h2>
 <p> Address: <%= @grocery_store.address %></p>
 <p> 24-hr: <%= @grocery_store.open_24_hours %></p>
 <p> Created at: <%= @grocery_store.created_at %></p>
 <p> Updated at: <%= @grocery_store.updated_at %></p>
+<br><p>This store has <%= @grocery_store.grocery_count %> groceries</p>
+<p><button class="button button2"><a href="/grocery_stores/<%= @grocery_store.id %>/groceries">Go to this store's groceries</a></button></p>
