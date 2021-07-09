@@ -75,4 +75,17 @@ describe 'Dealerships page' do
     
     expect(page).to have_content("Inventory: #{dealer1.car_count} cars on lot")
   end 
+
+  it 'can take the user to the dealers lot' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit "/dealerships/#{dealer1.id}"
+    
+    click_link('Go to Lot')
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
+  end
 end 
