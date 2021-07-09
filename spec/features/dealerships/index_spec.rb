@@ -40,7 +40,7 @@ describe 'Dealerships index page' do
     expect(current_path).to eq('/')
   end 
 
-  it 'can take the user to the home page' do 
+  it 'can take the user to the car page' do 
     dealer1 = Dealership.create!(name: 'Dealer1', 
                                   address: '4200 high st', 
                                   open_weekends: true, 
