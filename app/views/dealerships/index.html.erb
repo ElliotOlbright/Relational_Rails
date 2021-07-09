@@ -1,12 +1,25 @@
+
 <button class="button button2"><a href="/">Go to HomePage</a></button>
 <button class="button button2"><a href="/cars">Go to Cars</a></button>
 
 <h1>Dealership Index</h1>
-  
+<section id="dealerships">
+  <% @dealerships.each do |dealership| %>
+    <h2 id="name"><%= link_to dealership.name, "/dealerships/#{dealership.id}"%></h2>
+    <p id="address"><%= dealership.address %></p>
+  <% end %>
+</section>
 
-<% @dealerships.each do |dealership| %>
-  <h2><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %></a></h2>
-  <p><%= dealership.address %></p>
+
+
+#section id iteration
+<% if false %>
+  <% @dealerships.each do |dealership| %>
+    <section id="dealership-<%= dealership.id  %>">
+      <h2><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %></a></h2>
+      <p><%= dealership.address %></p>
+    </section>
+  <% end %>
 <% end %>
 
 
