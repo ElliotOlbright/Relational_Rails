@@ -26,11 +26,11 @@ class GroceryStoresController < ApplicationController
   def update
     @grocery_store = GroceryStore.find(params[:id])
     @grocery_store.update(
-      name: params[:grocery_store][:name],
-      address: params[:grocery_store][:address],
-      open_24_hours: params[:grocery_store][:open_24_hours]
+      name: params[:name],
+      address: params[:address],
+      open_24_hours: params[:open_24_hours]
       )
-
+    @grocery_store.save
     redirect_to "/grocery_stores/#{@grocery_store.id}"
   end
 end
