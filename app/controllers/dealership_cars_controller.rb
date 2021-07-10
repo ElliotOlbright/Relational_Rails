@@ -1,7 +1,11 @@
 class DealershipCarsController < ApplicationController
   def index
     @dealership = Dealership.find(params[:dealership_id])
-    @cars = @dealership.cars.alph_order
+    if params[:age].present?
+      @cars = @dealership.cars.where("year > ?", params[:age])
+    else 
+      @cars = @dealership.cars.alph_order
+    end  
   end 
 
   def new 

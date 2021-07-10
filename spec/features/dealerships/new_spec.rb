@@ -14,8 +14,8 @@ describe 'Dealership Add Page' do
 
     expect(page).to have_field(:name)
     expect(page).to have_field(:address)
-    expect(page).to have_field(:open)
-    expect(page).to have_field(:years)
+    expect(page).to have_field(:open_weekends)
+    expect(page).to have_field(:years_open)
   end 
 
   it 'Can create a new Dealership' do 

@@ -86,76 +86,6 @@ describe 'Dealership Cars page' do
         expect(current_path).to eq('/cars')
   end 
 
-  it 'can take the user dealership lot' do 
-    dealer1 = Dealership.create!(name: 'Dealer1', 
-                                  address: '4200 high st', 
-                                  open_weekends: true, 
-                                  years_open: 42
-                                )
-
-    lambo = dealer1.cars.create!(model: 'diablo', 
-                                make: 'Lamborghini', 
-                                year: 2020, 
-                                under_100k_miles: true
-                                )
-
-    visit "/dealerships/#{dealer1.id}"
-
-    expect(current_path).to eq("/dealerships/#{dealer1.id}")
-
-    click_link('Go to Lot')
-    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
-    expect(page).to have_content(lambo.model)
-  end 
-
-  it 'can take the user to edit a dealership' do 
-    dealer1 = Dealership.create!(name: 'Dealer1', 
-                                  address: '4200 high st', 
-                                  open_weekends: true, 
-                                  years_open: 42
-                                )
-
-    visit "/dealerships/#{dealer1.id}"
-
-    expect(current_path).to eq("/dealerships/#{dealer1.id}")
-
-
-    click_link('Edit Dealership')
-    expect(current_path).to eq("/dealerships/#{dealer1.id}/edit")
-  end 
-
-  it 'can take the user to delete a dealership' do 
-    dealer1 = Dealership.create!(name: 'Dealer1', 
-                                  address: '4200 high st', 
-                                  open_weekends: true, 
-                                  years_open: 42
-                                )
-
-    visit "/dealerships/#{dealer1.id}"
-
-    expect(current_path).to eq("/dealerships/#{dealer1.id}")
-
-    click_link('Delete Dealership')
-    expect(current_path).to eq('/dealerships')
-    expect(page).to have_no_content(dealer1.name)
-  end 
-
-  it 'can take the user to edit a dealership' do 
-    dealer1 = Dealership.create!(name: 'Dealer1', 
-                                  address: '4200 high st', 
-                                  open_weekends: true, 
-                                  years_open: 42
-                                )
-
-    visit "/dealerships/#{dealer1.id}"
-
-    expect(current_path).to eq("/dealerships/#{dealer1.id}")
-
-
-    click_link('Edit Dealership')
-    expect(current_path).to eq("/dealerships/#{dealer1.id}/edit")
-  end 
-
   it 'can take the user to add a car to the lot' do 
     dealer1 = Dealership.create!(name: 'Dealer1', 
                                   address: '4200 high st', 
@@ -163,12 +93,30 @@ describe 'Dealership Cars page' do
                                   years_open: 42
                                 )
 
-    visit "/dealerships/#{dealer1.id}"
+    visit "/dealerships/#{dealer1.id}/cars"
 
-    expect(current_path).to eq("/dealerships/#{dealer1.id}")
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
 
 
-    click_link('Edit Dealership')
-    expect(current_path).to eq("/dealerships/#{dealer1.id}/edit")
+    click_link('Add Car to Lot')
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/new")
+  end 
+
+  it 'can take filter car display by user vaule' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit "/dealerships/#{dealer1.id}/cars"
+
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
+
+    fill_in :age, with: "2220"
+
+
+    click_button('Only return records with more than `number` of `years old')
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
   end 
 end 

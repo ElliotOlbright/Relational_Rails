@@ -75,7 +75,7 @@ describe 'Cars Edit page' do
     fill_in :model, with: "Example Model"
     fill_in :make, with: "Example Make"
     fill_in :year, with: "2012"
-    fill_in :miles, with: "true"
+    fill_in :under_100k_miles, with: "true"
 
     click_button('Update')
 

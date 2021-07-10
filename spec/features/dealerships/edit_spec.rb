@@ -34,8 +34,8 @@ describe 'Dealership Edit page' do
     visit "/dealerships/#{dealer1.id}/edit"
     expect(page).to have_field(:name)
     expect(page).to have_field(:address)
-    expect(page).to have_field(:open)
-    expect(page).to have_field(:open)
+    expect(page).to have_field(:years_open)
+    expect(page).to have_field(:open_weekends)
   end 
 
   it 'can see Update Dealership form' do 
@@ -54,8 +54,8 @@ describe 'Dealership Edit page' do
     visit "/dealerships/#{dealer1.id}/edit"
     fill_in :name, with: "Example User"
     fill_in :address, with: "Example User"
-    fill_in :open, with: "true"
-    fill_in :years, with: "2314"
+    fill_in :open_weekends, with: "true"
+    fill_in :years_open, with: "2314"
 
     click_button('Update')
     expect(page).to have_content("Dealership Index")
@@ -77,8 +77,8 @@ describe 'Dealership Edit page' do
     visit "/dealerships/#{dealer1.id}/edit"
     fill_in :name, with: "Example Name"
     fill_in :address, with: "Example Address"
-    fill_in :open, with: "true"
-    fill_in :years, with: "2314"
+    fill_in :open_weekends, with: "true"
+    fill_in :years_open, with: "2314"
 
     click_button('Update')
 

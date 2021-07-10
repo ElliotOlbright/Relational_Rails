@@ -29,7 +29,7 @@ describe 'Dealership Cars New page' do
     expect(page).to have_field(:model)
     expect(page).to have_field(:make)
     expect(page).to have_field(:year)
-    expect(page).to have_field(:miles)
+    expect(page).to have_field(:under_100k_miles)
   end 
 
   it 'Can create a new Car' do 
@@ -70,7 +70,7 @@ describe 'Dealership Cars New page' do
     fill_in :model, with: "Example Model"
     fill_in :Make, with: "Example Make"
     fill_in :year, with: "2030"
-    fill_in :miles, with: true
+    fill_in :under_100k_miles, with: true
 
     click_button('Add to Lot')
 
