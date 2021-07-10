@@ -22,6 +22,7 @@ describe 'Dealership Cars page' do
     
     visit "/dealerships/#{dealer1.id}/cars"
     
+    expect(page).to have_content("#{dealer1.name}")
     expect(page).to have_content("Model: #{lambo.model}")
     expect(page).to have_content(lambo.make)
     expect(page).to have_content("Model: #{r8.model}")
@@ -83,5 +84,39 @@ describe 'Dealership Cars page' do
       
         click_link('Go to Cars')
         expect(current_path).to eq('/cars')
+  end 
+
+  it 'can take the user to add a car to the lot' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit "/dealerships/#{dealer1.id}/cars"
+
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
+
+
+    click_link('Add Car to Lot')
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/new")
+  end 
+
+  it 'can take filter car display by user vaule' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit "/dealerships/#{dealer1.id}/cars"
+
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
+
+    fill_in :age, with: "2220"
+
+
+    click_button('Only return records with more than `number` of `years old')
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
   end 
 end 

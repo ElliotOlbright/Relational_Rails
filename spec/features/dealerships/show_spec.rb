@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Dealerships page' do 
+describe 'Dealerships show page' do 
   it 'can see all dealerships name and address' do 
     dealer1 = Dealership.create!(name: 'Dealer1', 
                                 address: '4200 high st', 
@@ -88,4 +88,57 @@ describe 'Dealerships page' do
     click_link('Go to Lot')
     expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
   end
+
+  it 'can take the user to edit a dealership' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit '/dealerships'
+
+    expect(current_path).to eq('/dealerships')
+
+    visit '/dealerships'
+
+    click_link('Edit Dealership')
+    expect(current_path).to eq("/dealerships/#{dealer1.id}/edit")
+  end 
+
+  it 'can take the user to delete a dealership' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit '/dealerships'
+
+    expect(current_path).to eq('/dealerships')
+
+    visit '/dealerships'
+
+    click_link('Delete Dealership')
+    expect(current_path).to eq('/dealerships')
+    expect(page).to have_no_content(dealer1.name)
+  end 
+
+  it 'can take the user to create a new dealership' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    visit '/dealerships'
+
+    expect(current_path).to eq('/dealerships')
+
+    visit '/dealerships'
+
+    click_link('New Dealership')
+    expect(current_path).to eq('/dealerships/new')
+    expect(page).to have_content('Add a Dealership')
+  end 
 end 

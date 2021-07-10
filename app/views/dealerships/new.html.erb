@@ -1,0 +1,33 @@
+<h2>
+  <%= link_to 'Go to HomePage', '/', class:"button button2", method: :get %>
+  <%= link_to 'Go to Cars', '/cars', class:"button button2", method: :get %>
+  <%= link_to 'Go to Dealerships', '/dealerships', class:"button button2", method: :get %>
+</h2>
+
+<hr>
+
+<h1>Add a Dealership</h1>
+
+<%= form_tag '/dealerships', method: :post do %>
+
+<p> 
+  <%= label_tag :name, 'Name of Dealership' %>
+  <%= text_field_tag :name %><br>
+</p>
+<p>
+  <%= label_tag :address, 'Dealership Address' %>
+  <%= text_field_tag :address %><br>
+</p>
+<p>
+  <%= label_tag :open_weekends, 'Open on Weekends' %>
+  <%= text_field_tag :open_weekends %><br>
+</p>
+<p>
+  <%= label_tag :years_open, 'Years Open' %>
+  <%= text_field_tag :years_open %><br>
+</p>
+<p>
+  <%= submit_tag 'Create' %>
+</p>
+<% end %>
+

@@ -1,13 +1,21 @@
-<button class="button button2"><a href="/">Go to HomePage</a></button>
-<button class="button button2"><a href="/dealerships">Go to Dealerships</a></button>
+<h2>
+  <%= link_to 'Go to HomePage', '/', class:"button button2", method: :get %>
+  <%= link_to 'Go to Dealerships', '/dealerships', class:"button button2", method: :get %>
+</h2>
+
+<hr>
+
 <h1>Cars Index</h1>
 
 <% @cars.each do |car| %>
-  <h2><%= car.model %></h2>
+ <h1>_____________________________________________</h1>
+  <h2 id="name"><%= link_to car.model, "/cars/#{car.id}"%></h2>
   <p>Model: <%= car.model %></p>
   <p>Make: <%= car.make %></p>
   <p>Year: <%= car.year %></p>
   <p>Under 100k miles:<%= car.under_100k_miles %></p>
+  <p><%= link_to 'Edit Car', "/cars/#{car.id}/edit", class:"button button2", method: :get %></p>
+  <p><%= link_to 'Delete Car', "/cars/#{car.id}/delete", class:"button button_delete", method: :delete %></p>
   <br>
 <% end %>
  

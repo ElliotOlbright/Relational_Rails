@@ -1,6 +1,10 @@
-<button class="button button2"><a href="/">Go to HomePage</a></button>
-<button class="button button2"><a href="/cars">Go to Cars</a></button>
-<button class="button button2"><a href="/dealerships">Go to Dealership</a></button>
+<h2>
+  <%= link_to 'Go to HomePage', '/', class:"button button2", method: :get %>
+  <%= link_to 'Go to Cars', '/cars', class:"button button2", method: :get %>
+  <%= link_to 'Go to Dealerships', '/dealerships', class:"button button2", method: :get %>
+</h2>
+
+<hr>
 
 <h1>Dealership</h1>
 
@@ -11,3 +15,5 @@
 <p> Established <%= @dealership.years_open %> years ago</p>
 <p> Inventory: <%= @dealership.car_count %> cars on lot</p>
 <p><button class="button button2"><a href="/dealerships/<%= @dealership.id %>/cars">Go to Lot</a></button></p>
+<p><%= link_to 'Edit Dealership', "/dealerships/#{@dealership.id}/edit", class:"button button2", method: :get %></p>
+<p><%= link_to 'Delete Dealership', "/dealerships/#{@dealership.id}/delete", class:"button button_delete", method: :delete %></p>
