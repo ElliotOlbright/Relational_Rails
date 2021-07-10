@@ -6,4 +6,7 @@ class GroceryStoresController < ApplicationController
   def show
     @grocery_store = GroceryStore.find(params[:id])
   end
+
+  def new
+  end
 end
