@@ -30,7 +30,7 @@ RSpec.describe Car do
       expect(dealer1.cars.alph_order).to eq([alpha, beta, charlie])
     end 
 
-    it 'canfind cars under 100k miles' do 
+    it 'can find cars under 100k miles' do 
       dealer1 = Dealership.create!(name: 'Dealer1', 
                                   address: '4200 high st', 
                                   open_weekends: true, 

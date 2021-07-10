@@ -9,6 +9,8 @@
 <h1>Dealership Cars Index</h1>
 
 <h2><%= @dealership.name %></h2>
+<p><%=link_to "Alphabetize Cars", sort: "model"%> </p>
+
 <p><%= link_to 'Add Car to Lot', "/dealerships/#{@dealership.id}/new", class:"button button_create", method: :get %></p>
 
   <%= form_tag "/dealerships/#{@dealership.id}/cars", method: :get do %>
