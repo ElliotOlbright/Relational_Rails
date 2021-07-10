@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/cars/:id', to: 'cars#show'
   get '/cars/:id/edit', to: 'cars#edit'
   patch '/cars/:id', to: 'cars#update'
+  delete '/cars/:id/delete', to: 'cars#destroy'
 
 
   #Grocery Stores/Groceries routes

@@ -40,7 +40,7 @@ class DealershipsController < ApplicationController
 
   def destroy
     dealership = Dealership.find(params[:id])
-    dealership.cars.all.destroy
+
     dealership.destroy
     redirect_to '/dealerships'
   end
