@@ -32,9 +32,4 @@ RSpec.describe 'Create New Grocery page' do
     expect(page).to have_content("1.05")
     expect(page).to have_content("true")
   end
-  # When I fill in the form with the child's attributes:
-  # And I click the button "Create Child"
-  # Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
-  # a new child object/row is created for that parent,
-  # and I am redirected to the Parent Childs Index page where I can see the new child listed
 end
