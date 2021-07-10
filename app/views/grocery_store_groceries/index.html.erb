@@ -6,6 +6,8 @@
 
 <h2>Store: <%= @grocery_store.name %> </h2>
 
+<p><%= link_to 'Create Grocery', "/grocery_stores/#{@grocery_store.id}/groceries/new", class: "button button2", method: :get %></p>
+
 <% @groceries.each do |grocery| %>
   <h2> <%= grocery.name %> </h2>
   <p>Price: <%= grocery.price %> </p>
