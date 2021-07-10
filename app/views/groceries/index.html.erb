@@ -3,11 +3,13 @@
 
 
 <h1>Groceries Index</h1>
-
+<section id="groceries">
 <% @groceries.each do |grocery| %>
-  <h2><%= grocery.name %></h2>
+  <h1>_____________________________________________</h1>
+  <h2><a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a></h2>
   <p>Price: <%= grocery.price %></p>
   <p>In Stock: <%= grocery.in_stock %></p>
-  <p>Created at: <%= grocery.created_at %></p>
-  <p>Updated at: <%= grocery.updated_at %></p>
+  <p>Created at: <%= grocery.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
+  <p>Updated at: <%= grocery.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
 <% end %>
+</section>
