@@ -7,14 +7,14 @@
 <hr>
 
 <h1>Dealership Index</h1>
-<p><%= link_to 'New Dealership', '/dealerships/new', class:"button button2", method: :get %></p>
+<p><%= link_to 'New Dealership', '/dealerships/new', class:"button button_create", method: :get %></p>
 <section id="dealerships">
   <% @dealerships.each do |dealership| %>
     <h1>_____________________________________________</h1>
     <h2 id="name"><%= link_to dealership.name, "/dealerships/#{dealership.id}"%></h2>
     <p id="address"><%= dealership.address %></p>
     <p><%= link_to 'Edit Dealership', "/dealerships/#{dealership.id}/edit", class:"button button2", method: :get %></p>
-    <p><%= link_to 'Delete Dealership', "/dealerships/#{dealership.id}/delete", class:"button button2", method: :delete %></p>
+    <p><%= link_to 'Delete Dealership', "/dealerships/#{dealership.id}/delete", class:"button button_delete", method: :delete %></p>
   <% end %>
 </section>
 

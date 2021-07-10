@@ -9,13 +9,15 @@
 <h1>Dealership Cars Index</h1>
 
 <h2><%= @dealership.name %></h2>
-<p><%= link_to 'Add Car to Lot', "/dealerships/#{@dealership.id}/new", class:"button button2", method: :get %></p>
+<p><%= link_to 'Add Car to Lot', "/dealerships/#{@dealership.id}/new", class:"button button_create", method: :get %></p>
 
 <% @cars.each do |car| %>
+  <h1>_____________________________________________</h1>
   <h3> <%= car.model %></h3>
   <p>Model: <%= car.model %></p>
   <p>Make: <%= car.make %></p>
   <p>Year: <%= car.year %></p>
   <p>Under 100k miles:<%= car.under_100k_miles %></p>
   <p><%= link_to 'Edit Car', "/cars/#{car.id}/edit", class:"button button2", method: :get %></p>
+  <p><%= link_to 'Delete Car', "/cars/#{car.id}/delete", class:"button button_delete", method: :delete %></p>
 <% end %>

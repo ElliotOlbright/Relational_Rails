@@ -12,5 +12,5 @@
 <p>Year: <%= @car.year %></p>
 <p>Under 100k miles:<%= @car.under_100k_miles %></p>
 <p><%= link_to 'Edit Car', "/cars/#{@car.id}/edit", class:"button button2", method: :get %></p>
-<p><%= link_to 'Delete Car', "/cars/#{@car.id}/delete", class:"button button2", method: :delete %></p>
+<p><%= link_to 'Delete Car', "/cars/#{@car.id}/delete", class:"button button_delete", method: :delete %></p>
 
