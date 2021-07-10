@@ -81,9 +81,25 @@ describe 'Grocery Store Groceries page' do
       in_stock: true
     )
 
-    visit "/groceries/#{grocery1.id}"
+    visit "/grocery_stores/#{store1.id}/groceries"
   
     click_link('Go to Groceries')
     expect(current_path).to eq('/groceries')
+  end
+  
+  it 'can use link to create grocery' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    visit "grocery_stores/#{store1.id}"
+    click_link("Go to this store's groceries")
+    expect(page).to have_content('Create Grocery')
+
+    click_link('Create Grocery')
+    expect(page).to have_content('Grocery name:')
+    expect(page).to have_content('Grocery price:')
+    expect(page).to have_content('In stock?:')
   end
 end 
