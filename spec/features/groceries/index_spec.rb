@@ -31,18 +31,6 @@ describe 'Groceries index page' do
   end 
 
   it 'can take the user to the HomePage' do 
-    store1 = GroceryStore.create!(
-      name: 'Albertsons', 
-      address: '1234 Fake Street', 
-      open_24_hours: false
-    )
-
-    store2 = GroceryStore.create!(
-      name: 'Stater Bros', 
-      address: '2345 Chump Boulevard', 
-      open_24_hours: true
-    )
-
     visit '/groceries'
     
     click_link('Go to HomePage')
@@ -50,18 +38,6 @@ describe 'Groceries index page' do
   end 
 
   it 'can take the user to the Grocery Store page' do 
-    store1 = GroceryStore.create!(
-      name: 'Albertsons', 
-      address: '1234 Fake Street', 
-      open_24_hours: false
-    )
-
-    store2 = GroceryStore.create!(
-      name: 'Stater Bros', 
-      address: '2345 Chump Boulevard', 
-      open_24_hours: true
-    )
-
     visit '/groceries'
   
     click_link('Go to Grocery Stores')
