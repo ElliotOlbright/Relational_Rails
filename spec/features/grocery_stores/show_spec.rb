@@ -34,7 +34,6 @@ describe 'Grocery Stores page' do
       address: '2345 Chump Boulevard', 
       open_24_hours: true
     )
-
     visit "/grocery_stores"
     
     click_link('Go to HomePage')
@@ -47,20 +46,13 @@ describe 'Grocery Stores page' do
       address: '1234 Fake Street', 
       open_24_hours: false
     )
-
-    store2 = GroceryStore.create!(
-      name: 'Stater Bros', 
-      address: '2345 Chump Boulevard', 
-      open_24_hours: true
-    )
-
     visit "/grocery_stores/#{store1.id}"
   
     click_link('Go to Groceries')
     expect(current_path).to eq('/groceries')
   end
 
-  it 'can take the user to the Groceries page' do 
+  it 'shows groceries at store' do 
     store1 = GroceryStore.create!(
       name: 'Albertsons', 
       address: '1234 Fake Street', 
@@ -69,13 +61,12 @@ describe 'Grocery Stores page' do
 
     grocery1 = store1.groceries.create!(
       name: 'Fishy Bits', 
-      price: 7.99, 
+      price: 7.99,
       in_stock: true
     )
-
     visit "/grocery_stores/#{store1.id}"
-  
-    expect(page).to have_content("This store has #{store1.grocery_count} groceries")
+
+    expect(page).to have_content("This store has #{1} groceries")
   end 
 
   it 'can take the user to the inventory page' do 
@@ -84,10 +75,22 @@ describe 'Grocery Stores page' do
       address: '1234 Fake Street', 
       open_24_hours: false
     )
-
     visit "/grocery_stores/#{store1.id}"
     
     click_link("Go to this store's groceries")
     expect(current_path).to eq("/grocery_stores/#{store1.id}/groceries")
+  end
+
+  it 'can take user to edit page' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    visit "grocery_stores/#{store1.id}"
+    click_link('Update Grocery Store')
+
+    expect(current_path).to eq("/grocery_stores/#{store1.id}/edit")
+    expect(page).to have_content('Update Grocery Store')
   end
 end 
