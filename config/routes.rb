@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   patch '/grocery_stores/:id', to: 'grocery_stores#update'
   
   get '/groceries', to: 'groceries#index'
+  get '/groceries/:id', to: 'groceries#show'
   get '/grocery_stores/:grocery_store_id/groceries', to: 'grocery_store_groceries#index'
   get '/grocery_stores/:grocery_store_id/groceries/new', to: 'grocery_store_groceries#new'
   

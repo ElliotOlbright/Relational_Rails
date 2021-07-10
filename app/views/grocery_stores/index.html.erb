@@ -9,5 +9,6 @@
   <h2><a href="/grocery_stores/<%= grocery_store.id %>"><%= grocery_store.name %></a></h2>
   <p id="address">Address: <%= grocery_store.address %></p>
   <p>Created at: <%= grocery_store.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
+  <p>Created at: <%= grocery_store.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
 <% end %>
 </section>
