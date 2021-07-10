@@ -11,3 +11,4 @@
 <p> Established <%= @dealership.years_open %> years ago</p>
 <p> Inventory: <%= @dealership.car_count %> cars on lot</p>
 <p><button class="button button2"><a href="/dealerships/<%= @dealership.id %>/cars">Go to Lot</a></button></p>
+<p><%= link_to 'Edit Dealership', "/dealerships/#{@dealership.id}/edit", class:"button button2", method: :get %></p>

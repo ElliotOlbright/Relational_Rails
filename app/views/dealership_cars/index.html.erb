@@ -4,6 +4,7 @@
 <h1>Dealership Cars Index</h1>
 
 <h2><%= @dealership.name %></h2>
+<p><%= link_to 'Add Car to Lot', "/dealerships/#{@dealership.id}/new", class:"button button2", method: :get %></p>
 
 <% @cars.each do |car| %>
   <h3> <%= car.model %></h3>
@@ -11,4 +12,5 @@
   <p>Make: <%= car.make %></p>
   <p>Year: <%= car.year %></p>
   <p>Under 100k miles:<%= car.under_100k_miles %></p>
+  <p><%= link_to 'Edit Car', "/cars/#{car.id}/edit", class:"button button2", method: :get %></p>
 <% end %>

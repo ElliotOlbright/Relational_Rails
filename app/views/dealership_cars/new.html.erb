@@ -1,0 +1,24 @@
+<h1>Add Car to Lot</h1>
+
+<%= form_tag "/dealerships/#{@dealership.id}/cars", method: :post do %>
+
+<p> 
+  <%= label_tag :model, 'Model of Car' %>
+  <%= text_field_tag :model %><br>
+</p>
+<p>
+  <%= label_tag :make, 'Make of Car' %>
+  <%= text_field_tag :make %><br>
+</p>
+<p>
+<%= label_tag :year, 'Year of Car' %>
+  <%= text_field_tag :open %><br>
+</p>
+<p>
+  <%= label_tag :miles, 'Under 100k Miles' %>
+  <%= text_field_tag :open %><br>
+</p>
+<p>
+  <%= submit_tag 'Add to Lot' %>
+</p>
+<% end %>

@@ -97,5 +97,28 @@ describe 'Dealerships index page' do
       expect(all("#address")[2].text).to eq(@dealer1.address)
     end 
   end
+
+  it 'can take the user to create a new dealership' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
+
+    dealer2 = Dealership.create!(name: 'Dealer2', 
+                                address: '6925 ride st', 
+                                open_weekends: false, 
+                                years_open: 23
+                                )
+
+    visit '/dealerships'
+
+    expect(current_path).to eq('/dealerships')
+
+    visit '/dealerships'
+
+    click_link('New Dealership')
+    expect(current_path).to eq('/dealerships/new')
+  end 
 end 
 

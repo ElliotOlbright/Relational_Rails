@@ -1,0 +1,26 @@
+<button class="button button2"><a href="/">Go to HomePage</a></button>
+<button class="button button2"><a href="/cars">Go to Cars</a></button>
+<button class="button button2"><a href="/dealerships">Go to Dealerships</a></button>
+<h1>Update <%=@car.make%> <%=@car.model %></h1>
+
+<%= form_tag "/cars/#{@car.id}", method: :patch do %>
+
+<p>  <%= label_tag :model, "Model of Your Car (#{@car.model})" %><br>
+  <%= text_field_tag :model %><br><br>
+</p>
+<p>
+  <%= label_tag :make, "Make of your Car (#{@car.make})" %><br>
+  <%= text_field_tag :make %><br><br>
+</p>
+<p>
+  <%= label_tag :year, "Year of your car (#{@car.year})" %><br>
+  <%= text_field_tag :year %><br><br>
+</p>
+<p>
+  <%= label_tag :miles, "Under 100k Miles (#{@car.under_100k_miles})" %><br>
+  <%= text_field_tag :miles %><br><br>
+</p>
+<p>
+  <%= submit_tag 'Update' %>
+</p>
+<% end %>
