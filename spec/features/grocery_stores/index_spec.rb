@@ -85,4 +85,12 @@ describe 'Grocery Stores index page' do
       expect(all("#address")[2].text).to eq("Address: #{@store1.address}")
     end 
   end
+
+  it 'can take the user to create a new store' do 
+    visit '/grocery_stores'
+    expect(current_path).to eq('/grocery_stores')
+
+    click_link('New Grocery Store')
+    expect(current_path).to eq('/grocery_stores/new')
+  end
 end
