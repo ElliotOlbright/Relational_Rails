@@ -1,23 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe GroceryStore do
-  it {should have_many :groceries}
+RSpec.describe Dealership do
+  it {should have_many :cars}
+  describe 'instance methods' do 
+    it 'counts number of cars' do
+      dealer1 = Dealership.create!(name: 'Dealer1', 
+                                  address: '4200 high st', 
+                                  open_weekends: true, 
+                                  years_open: 42
+                                )
 
-  describe 'instance methods' do
-    it 'counts number of own groceries' do
-      store1 = GroceryStore.create!(
-        name: 'Albertsons', 
-        address: '1234 Fake Street', 
-        open_24_hours: false
-      )
+      lambo = dealer1.cars.create!(model: 'diablo', 
+                                  make: 'Lamborghini', 
+                                  year: 2020, 
+                                  under_100k_miles: true
+                                )
 
-      grocery1 = store1.groceries.create!(
-      name: 'Fishy Bits', 
-      price: 7.99, 
-      in_stock: true
-    )
+      r8 = dealer1.cars.create!(model: 'R8', 
+                                make: 'Audi', 
+                                year: 2022, 
+                                under_100k_miles: true
+                              )   
 
-    expect(store1.grocery_count).to eq(1)
-    end
+      expect(dealer1.car_count).to eq(2)
+    end 
   end
 end
