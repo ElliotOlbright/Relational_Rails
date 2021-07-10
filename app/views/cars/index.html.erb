@@ -1,5 +1,10 @@
-<button class="button button2"><a href="/">Go to HomePage</a></button>
-<button class="button button2"><a href="/dealerships">Go to Dealerships</a></button>
+<h2>
+  <%= link_to 'Go to HomePage', '/', class:"button button2", method: :get %>
+  <%= link_to 'Go to Dealerships', '/dealerships', class:"button button2", method: :get %>
+</h2>
+
+<hr>
+
 <h1>Cars Index</h1>
 
 <% @cars.each do |car| %>
