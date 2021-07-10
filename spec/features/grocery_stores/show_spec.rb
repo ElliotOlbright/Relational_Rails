@@ -90,4 +90,18 @@ describe 'Grocery Stores page' do
     click_link("Go to this store's groceries")
     expect(current_path).to eq("/grocery_stores/#{store1.id}/groceries")
   end
+
+  it 'can take user to edit page' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+
+    visit "grocery_stores/#{store1.id}"
+    click_link('Update Grocery Store')
+
+    expect(current_path).to eq("/grocery_stores/#{store1.id}/edit")
+    expect(page).to have_content('Update Grocery Store')
+  end
 end 
