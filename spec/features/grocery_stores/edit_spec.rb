@@ -40,4 +40,26 @@ RSpec.describe 'Grocery Stores edit page' do
       expect(current_path).to eq('/grocery_stores')
     end
   end
+
+  describe 'features' do
+    it 'can update the attributes of a store' do
+      store1 = GroceryStore.create!(
+        name: 'Albertsons', 
+        address: '1234 Fake Street', 
+        open_24_hours: false
+      )
+      visit "grocery_stores/#{store1.id}"
+      click_link('Update Grocery Store')
+      expect(current_path).to eq("/grocery_stores/#{store1.id}/edit")
+
+      fill_in :name, with: "Example Name"
+      fill_in :address, with: "Example Address"
+      fill_in :open_24_hours, with: "true"
+      click_button('Update Store')
+
+      expect(current_path).to eq("/grocery_stores/#{store1.id}")
+      expect(page).to have_content("Example Name")
+      expect(page).to have_content("Example Address")
+    end
+  end
 end
