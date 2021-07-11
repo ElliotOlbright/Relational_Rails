@@ -45,7 +45,6 @@ describe 'Grocery Stores index page' do
       address: '1234 Fake Street', 
       open_24_hours: false
     )
-
     grocery1 = store1.groceries.create!(
       name: 'Fishy Bits', 
       price: 7.99, 
