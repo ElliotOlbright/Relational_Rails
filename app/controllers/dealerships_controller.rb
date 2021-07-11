@@ -1,6 +1,10 @@
 class DealershipsController < ApplicationController
   def index
-    @dealerships = Dealership.order(created_at: :desc) 
+    if params[:dealer_name].present?
+      @dealerships = Dealership.where("name = ?", params[:dealer_name])
+    else
+      @dealerships = Dealership.order(created_at: :desc)
+    end 
   end
 
   def show

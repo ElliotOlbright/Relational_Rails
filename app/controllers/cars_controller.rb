@@ -1,6 +1,10 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.under_100k_miles
+    if params[:make_of_car].present?
+      @cars = Car.where("make = ?", params[:make_of_car])
+    else
+      @cars = Car.under_100k_miles
+    end
   end
   
   def show 
