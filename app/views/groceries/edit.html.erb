@@ -1,0 +1,20 @@
+<button class="button button2"><a href="/">Go to HomePage</a></button>
+<button class="button button2"><a href="/groceries">Go to Groceries</a></button>
+<button class="button button2"><a href="/grocery_stores">Go to Grocery Stores</a></button>
+
+<h1>Update Grocery</h1>
+
+<%= form_tag "/groceries/#{@grocery.id}", method: :patch do %>
+<p>
+  <%= label_tag :name, 'New grocery name:' %>
+  <%= text_field_tag :name %><br>
+
+  <%= label_tag :price, 'New grocery price:' %>
+  <%= text_field_tag :price %><br>
+  
+  <%= label_tag :in_stock, 'In stock?' %>
+  <%= text_field_tag :in_stock %><br>
+
+  <%= submit_tag 'Update Grocery' %>
+</p>
+<% end %>
