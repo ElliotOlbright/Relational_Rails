@@ -10,7 +10,7 @@
 <p><%= link_to 'Create Grocery', "/grocery_stores/#{@grocery_store.id}/groceries/new", class: "button button_create", method: :get %></p>
 
 <% @groceries.each do |grocery| %>
-  <h2> <%= grocery.name %> </h2>
+  <h2><a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a></h2>
   <p>Price: <%= grocery.price %> </p>
   <p>In Stock: <%= grocery.in_stock %> </p>
   <p>Created at: <%= grocery.created_at %> </p>
