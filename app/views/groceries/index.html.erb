@@ -3,8 +3,9 @@
 
 
 <h1>Groceries Index</h1>
+<hr>
+
 <% @groceries.each do |grocery| %>
-  <h1>_____________________________________________</h1>
   <h2><a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a></h2>
   <p>Price: <%= grocery.price %></p>
   <p>In Stock: <%= grocery.in_stock %></p>
@@ -14,4 +15,5 @@
     <%= link_to 'Update Grocery', "/groceries/#{grocery.id}/edit", class: "button button_edit", method: :get %>
     <%= link_to 'Delete Grocery', "/groceries/#{grocery.id}/delete", class: "button button_delete", method: :delete %>
   </p>
+  <h1>_____________________________________________</h1>
 <% end %>
