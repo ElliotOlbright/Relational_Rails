@@ -89,7 +89,7 @@ describe 'Groceries page' do
       in_stock: true
     )
 
-    visit "groceries/#{grocery1.id}"
+    visit "/groceries/#{grocery1.id}"
     expect(page).to have_content("Update Grocery")
   end
 end 
