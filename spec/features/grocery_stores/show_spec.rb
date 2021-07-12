@@ -97,7 +97,7 @@ describe 'Grocery Stores page' do
         open_24_hours: false
       )
       visit "grocery_stores/#{store1.id}"
-      click_link('Update Grocery Store')
+      click_link('Update Store')
 
       expect(current_path).to eq("/grocery_stores/#{store1.id}/edit")
       expect(page).to have_content('Update Grocery Store')
