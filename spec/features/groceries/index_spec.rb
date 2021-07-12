@@ -31,18 +31,6 @@ describe 'Groceries index page' do
   end 
 
   it 'can take the user to the HomePage' do 
-    store1 = GroceryStore.create!(
-      name: 'Albertsons', 
-      address: '1234 Fake Street', 
-      open_24_hours: false
-    )
-
-    store2 = GroceryStore.create!(
-      name: 'Stater Bros', 
-      address: '2345 Chump Boulevard', 
-      open_24_hours: true
-    )
-
     visit '/groceries'
     
     click_link('Go to HomePage')
@@ -50,21 +38,65 @@ describe 'Groceries index page' do
   end 
 
   it 'can take the user to the Grocery Store page' do 
+    visit '/groceries'
+  
+    click_link('Go to Grocery Stores')
+    expect(current_path).to eq('/grocery_stores')
+  end
+
+  it 'shows link for updating groceries' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    grocery1 = store1.groceries.create!(
+      name: 'Fishy Bits', 
+      price: 7.99, 
+      in_stock: true
+    )
+
+    visit "/groceries"
+    expect(page).to have_content("Update Grocery")
+  end
+
+  it 'shows deletion link' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    grocery1 = store1.groceries.create!(
+      name: 'Fishy Bits', 
+      price: 7.99, 
+      in_stock: true
+    )
+    visit "/groceries"
+
+    expect(page).to have_content("Delete Grocery")
+  end
+
+  xit 'only shows true records' do
     store1 = GroceryStore.create!(
       name: 'Albertsons', 
       address: '1234 Fake Street', 
       open_24_hours: false
     )
 
-    store2 = GroceryStore.create!(
-      name: 'Stater Bros', 
-      address: '2345 Chump Boulevard', 
-      open_24_hours: true
+    grocery1 = store1.groceries.create!(
+      name: 'Fishy Bits', 
+      price: 7.99, 
+      in_stock: true
     )
 
+    grocery2 = store1.groceries.create!(
+      name: 'Cheese Sticks', 
+      price: 9.99, 
+      in_stock: false
+    )
     visit '/groceries'
-  
-    click_link('Go to Grocery Stores')
-    expect(current_path).to eq('/grocery_stores')
-  end 
+
+    expect(page).to have_content("Fishy Bits")
+    expect(page).not_to have_content("Cheese Sticks")
+  end
 end 

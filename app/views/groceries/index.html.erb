@@ -3,11 +3,15 @@
 
 
 <h1>Groceries Index</h1>
-
 <% @groceries.each do |grocery| %>
-  <h2><%= grocery.name %></h2>
+  <h1>_____________________________________________</h1>
+  <h2><a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a></h2>
   <p>Price: <%= grocery.price %></p>
   <p>In Stock: <%= grocery.in_stock %></p>
-  <p>Created at: <%= grocery.created_at %></p>
-  <p>Updated at: <%= grocery.updated_at %></p>
+  <p>Created at: <%= grocery.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
+  <p>Updated at: <%= grocery.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
+  <p>
+    <%= link_to 'Update Grocery', "/groceries/#{grocery.id}/edit", class: "button button2", method: :get %>
+    <%= link_to 'Delete Grocery', "/groceries/#{grocery.id}/delete", class: "button button_delete", method: :delete %>
+  </p>
 <% end %>

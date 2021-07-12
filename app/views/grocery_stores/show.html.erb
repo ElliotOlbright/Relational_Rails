@@ -4,10 +4,13 @@
 
 <h1>Grocery Store</h1>
 <h2> <%= @grocery_store.name %> </h2>
-<p> Address: <%= @grocery_store.address %></p>
-<p> 24-hr: <%= @grocery_store.open_24_hours %></p>
-<p> Created at: <%= @grocery_store.created_at %></p>
-<p> Updated at: <%= @grocery_store.updated_at %></p>
-<br><p>This store has <%= @grocery_store.grocery_count %> groceries</p>
-<p><button class="button button2"><a href="/grocery_stores/<%= @grocery_store.id %>/groceries">Go to this store's groceries</a></button></p>
-<p><%= link_to 'Update Grocery Store', "/grocery_stores/#{@grocery_store.id}/edit", class: "button button2", method: :get %></p>
+<p> Address: <%= grocery_store.address %></p>
+<p> 24-hr: <%= grocery_store.open_24_hours %></p>
+<p> Created at: <%= grocery_store.created_at %></p>
+<p> Updated at: <%= grocery_store.updated_at %></p>
+<br><p>This store has <%= grocery_store.grocery_count %> groceries</p>
+<p><button class="button button2"><a href="/grocery_stores/<%= grocery_store.id %>/groceries">Go to this store's groceries</a></button></p>
+<p>
+  <%= link_to 'Update Store', "/grocery_stores/#{grocery_store.id}/edit", class: "button button2", method: :get %>
+  <%= link_to 'Delete Store', "/grocery_stores/#{grocery_store.id}/delete", class: "button button_delete", method: :delete %>
+</p>
