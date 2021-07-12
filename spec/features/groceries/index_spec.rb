@@ -85,19 +85,17 @@ describe 'Groceries index page' do
       expect(page).not_to have_content(grocery1.name)
     end
 
-    xit 'only shows true records' do
+    it 'only shows true records' do
       store1 = GroceryStore.create!(
         name: 'Albertsons', 
         address: '1234 Fake Street', 
         open_24_hours: false
       )
-
       grocery1 = store1.groceries.create!(
         name: 'Fishy Bits', 
         price: 7.99, 
         in_stock: true
       )
-
       grocery2 = store1.groceries.create!(
         name: 'Cheese Sticks', 
         price: 9.99, 
