@@ -91,5 +91,7 @@ describe 'Groceries page' do
 
     visit "/groceries/#{grocery1.id}"
     expect(page).to have_content("Update Grocery")
+    click_link("Update Grocery")
+    expect(current_path).to eq("/groceries/#{grocery1.id}/edit")
   end
 end 
