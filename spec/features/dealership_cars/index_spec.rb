@@ -116,7 +116,7 @@ describe 'Dealership Cars page' do
     fill_in :age, with: "2220"
 
 
-    click_button('Only return records with more than `number` of `years old')
+    click_button('Return Cars after Year')
     expect(current_path).to eq("/dealerships/#{dealer1.id}/cars")
   end 
 end 

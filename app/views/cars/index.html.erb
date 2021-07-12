@@ -21,13 +21,13 @@
 <% @cars.each do |car| %>
  <h1>_____________________________________________</h1>
   <h2 id="name"><%= link_to car.model, "/cars/#{car.id}"%></h2>
-  <p>Model: <%= car.model.capitalize %></p>
-  <p>Make: <%= car.make.capitalize %></p>
+  <p>Model: <%= car.model %></p>
+  <p>Make: <%= car.make%></p>
   <p>Year: <%= car.year %></p>
   <p>Under 100k miles:<%= car.under_100k_miles %></p>
   <p>
-    <%= link_to "Edit #{car.model.capitalize}", "/cars/#{car.id}/edit", class:"button button_edit", method: :get %>
-    <%= link_to "Delete #{car.model.capitalize}", "/cars/#{car.id}/delete", class:"button button_delete", method: :delete %>
+    <%= link_to "Edit Car", "/cars/#{car.id}/edit", class:"button button_edit", method: :get %>
+    <%= link_to "Delete Car", "/cars/#{car.id}/delete", class:"button button_delete", method: :delete %>
   </p>
 <% end %>
  
