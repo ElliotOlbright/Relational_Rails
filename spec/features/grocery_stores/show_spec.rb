@@ -82,4 +82,39 @@ describe 'Grocery Stores page' do
     expect(current_path).to eq("/grocery_stores/#{store1.id}/edit")
     expect(page).to have_content('Update Grocery Store')
   end
+
+  it 'contains deletion link' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    store2 = GroceryStore.create!(
+      name: 'Stater Bros', 
+      address: '2345 Chump Boulevard', 
+      open_24_hours: true
+    )
+    visit "/grocery_stores/#{store1.id}"
+
+    expect(page).to have_content("Delete Store")
+  end
+
+  it 'can delete parent' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    store2 = GroceryStore.create!(
+      name: 'Stater Bros', 
+      address: '2345 Chump Boulevard', 
+      open_24_hours: true
+    )
+    visit "/grocery_stores/#{store1.id}"
+
+    click_link("Delete Store")
+    expect(current_path).to eq('/grocery_stores')
+    expect(page).to have_content(store2.name)
+    expect(page).not_to have_content(store1.name)
+  end
 end 

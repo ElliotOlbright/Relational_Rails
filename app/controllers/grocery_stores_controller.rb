@@ -33,4 +33,9 @@ class GroceryStoresController < ApplicationController
     @grocery_store.save
     redirect_to "/grocery_stores/#{@grocery_store.id}"
   end
+
+  def destroy
+    GroceryStore.destroy(params[:id])
+    redirect_to '/grocery_stores'
+  end
 end

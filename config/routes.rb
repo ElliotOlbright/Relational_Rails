@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get '/grocery_stores/:id', to: 'grocery_stores#show'
   get '/grocery_stores/:id/edit', to: 'grocery_stores#edit'
   patch '/grocery_stores/:id', to: 'grocery_stores#update'
+  delete '/grocery_stores/:id/delete', to: 'grocery_stores#destroy'
   
   get '/groceries', to: 'groceries#index'
   get '/groceries/:id', to: 'groceries#show'
