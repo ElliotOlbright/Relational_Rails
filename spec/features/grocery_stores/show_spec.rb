@@ -99,7 +99,7 @@ describe 'Grocery Stores page' do
     expect(page).to have_content("Delete Store")
   end
 
-  it 'can delete parent' do
+  it 'can delete store' do
     store1 = GroceryStore.create!(
       name: 'Albertsons', 
       address: '1234 Fake Street', 

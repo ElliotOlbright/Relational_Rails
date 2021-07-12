@@ -93,7 +93,7 @@ describe 'Grocery Stores index page' do
     expect(current_path).to eq('/grocery_stores/new')
   end
 
-  it 'can see link to travel to edit page' do
+  it 'can see link to edit store' do
     store1 = GroceryStore.create!(
       name: 'Food 4 Less', 
       address: '6789 Cow Circle', 
@@ -102,5 +102,21 @@ describe 'Grocery Stores index page' do
     visit '/grocery_stores'
 
     expect(page).to have_content('Update Store')
+  end
+
+  it 'contains deletion link' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    store2 = GroceryStore.create!(
+      name: 'Stater Bros', 
+      address: '2345 Chump Boulevard', 
+      open_24_hours: true
+    )
+    visit '/grocery_stores'
+
+    expect(page).to have_content("Delete Store")
   end
 end
