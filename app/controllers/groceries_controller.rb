@@ -27,4 +27,8 @@ class GroceriesController < ApplicationController
     grocery = Grocery.destroy(params[:id])
     redirect_to '/groceries'
   end
+
+  # def grocery_params
+  #   params.permit(:name, :price, :in_stock)
+  # end
 end

@@ -38,4 +38,8 @@ class GroceryStoresController < ApplicationController
     GroceryStore.destroy(params[:id])
     redirect_to '/grocery_stores'
   end
+
+  # def store_params
+  #   params.permit(:name, :address, :open_24_hours)
+  # end
 end
