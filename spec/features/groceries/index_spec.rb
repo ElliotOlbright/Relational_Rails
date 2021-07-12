@@ -44,6 +44,22 @@ describe 'Groceries index page' do
     expect(current_path).to eq('/grocery_stores')
   end
 
+  it 'shows link for updating groceries' do
+    store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    grocery1 = store1.groceries.create!(
+      name: 'Fishy Bits', 
+      price: 7.99, 
+      in_stock: true
+    )
+
+    visit "/groceries"
+    expect(page).to have_content("Update Grocery")
+  end
+
   xit 'only shows true records' do
     store1 = GroceryStore.create!(
       name: 'Albertsons', 

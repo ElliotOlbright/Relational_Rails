@@ -10,4 +10,5 @@
   <p>In Stock: <%= grocery.in_stock %></p>
   <p>Created at: <%= grocery.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
   <p>Updated at: <%= grocery.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
+  <p><%= link_to 'Update Grocery', "/groceries/#{grocery.id}/edit", class: "button button2", method: :get %></p>
 <% end %>
