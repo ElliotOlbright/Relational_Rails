@@ -11,6 +11,6 @@
 <br><p>This store has <%= @grocery_store.grocery_count %> groceries</p>
 <p><button class="button button2"><a href="/grocery_stores/<%= @grocery_store.id %>/groceries">Go to this store's groceries</a></button></p>
 <p>
-  <%= link_to 'Update Grocery Store', "/grocery_stores/#{@grocery_store.id}/edit", class: "button button2", method: :get %>
+  <%= link_to 'Update Store', "/grocery_stores/#{@grocery_store.id}/edit", class: "button button2", method: :get %>
   <%= link_to 'Delete Store', "/grocery_stores/#{@grocery_store.id}/delete", class: "button button_delete", method: :delete %>
 </p>
