@@ -3,7 +3,6 @@
 
 
 <h1>Groceries Index</h1>
-<section id="groceries">
 <% @groceries.each do |grocery| %>
   <h1>_____________________________________________</h1>
   <h2><a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a></h2>
@@ -12,4 +11,3 @@
   <p>Created at: <%= grocery.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
   <p>Updated at: <%= grocery.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
 <% end %>
-</section>
