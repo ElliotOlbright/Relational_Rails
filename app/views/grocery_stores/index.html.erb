@@ -12,7 +12,7 @@
   <h2><a href="/grocery_stores/<%= grocery_store.id %>"><%= grocery_store.name %></a></h2>
   <p id="address">Address: <%= grocery_store.address %></p>
   <p>Created at: <%= grocery_store.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
-  <p>Created at: <%= grocery_store.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
+  <p>Updated at: <%= grocery_store.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
   <p>
     <%= link_to 'Update Store', "/grocery_stores/#{grocery_store.id}/edit", class: "button button_edit", method: :get %>
     <%= link_to 'Delete Store', "/grocery_stores/#{grocery_store.id}/delete", class: "button button_delete", method: :delete %>

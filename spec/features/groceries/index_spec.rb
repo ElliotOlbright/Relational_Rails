@@ -60,7 +60,7 @@ describe 'Groceries index page' do
     expect(page).to have_content("Update Grocery")
   end
 
-  it 'shows deletion link' do
+  it 'can delete grocery' do
     store1 = GroceryStore.create!(
       name: 'Albertsons', 
       address: '1234 Fake Street', 
@@ -71,9 +71,18 @@ describe 'Groceries index page' do
       price: 7.99, 
       in_stock: true
     )
-    visit "/groceries"
-
+    grocery2 = store1.groceries.create!(
+      name: 'Cheese Sticks', 
+      price: 9.99, 
+      in_stock: false
+    )
+    visit "/groceries/#{grocery1.id}"
+    
     expect(page).to have_content("Delete Grocery")
+    click_link("Delete Grocery")
+    expect(current_path).to eq('/groceries')
+    expect(page).to have_content(grocery2.name)
+    expect(page).not_to have_content(grocery1.name)
   end
 
   xit 'only shows true records' do

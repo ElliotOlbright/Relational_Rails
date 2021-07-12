@@ -94,23 +94,7 @@ describe 'Groceries page' do
     click_link("Update Grocery")
     expect(current_path).to eq("/groceries/#{grocery1.id}/edit")
   end
-
-  it 'shows deletion link' do
-    store1 = GroceryStore.create!(
-      name: 'Albertsons', 
-      address: '1234 Fake Street', 
-      open_24_hours: false
-    )
-    grocery1 = store1.groceries.create!(
-      name: 'Fishy Bits', 
-      price: 7.99, 
-      in_stock: true
-    )
-    visit "/groceries/#{grocery1.id}"
-
-    expect(page).to have_content("Delete Grocery")
-  end
-
+  
   it 'can delete grocery' do
     store1 = GroceryStore.create!(
       name: 'Albertsons', 
@@ -128,7 +112,8 @@ describe 'Groceries page' do
       in_stock: false
     )
     visit "/groceries/#{grocery1.id}"
-
+    
+    expect(page).to have_content("Delete Grocery")
     click_link("Delete Grocery")
     expect(current_path).to eq('/groceries')
     expect(page).to have_content(grocery2.name)
