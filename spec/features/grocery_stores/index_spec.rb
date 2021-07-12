@@ -92,4 +92,15 @@ describe 'Grocery Stores index page' do
     click_link('New Grocery Store')
     expect(current_path).to eq('/grocery_stores/new')
   end
+
+  it 'can see link to travel to edit page' do
+    store1 = GroceryStore.create!(
+      name: 'Food 4 Less', 
+      address: '6789 Cow Circle', 
+      open_24_hours: true
+    )
+    visit '/grocery_stores'
+
+    expect(page).to have_content('Update Store')
+  end
 end
