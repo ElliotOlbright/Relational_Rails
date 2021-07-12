@@ -50,7 +50,8 @@ a:hover {
 }
 
 .button_delete {background-color: #eb6239;} 
-.button_create {background-color: #75e498;} 
+.button_create {background-color: #75e498;}
+.button_edit {background-color: rgb(88, 141, 184);}
 .button2 {background-color: #f5e4dc;} 
 
 h1 {

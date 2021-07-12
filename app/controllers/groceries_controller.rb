@@ -13,11 +13,7 @@ class GroceriesController < ApplicationController
 
   def update
     @grocery = Grocery.find(params[:id])
-    @grocery.update(
-      name:params[:name],
-      price:params[:price],
-      in_stock:params[:in_stock]
-    )
+    @grocery.update(grocery_params)
     @grocery.save
   
     redirect_to "/groceries/#{@grocery.id}"
@@ -26,5 +22,10 @@ class GroceriesController < ApplicationController
   def destroy
     grocery = Grocery.destroy(params[:id])
     redirect_to '/groceries'
+  end
+
+private
+  def grocery_params
+    params.permit(:name, :price, :in_stock)
   end
 end

@@ -2,17 +2,19 @@
 <button class="button button2"><a href="/groceries">Go to Groceries</a></button>
 
 <h1>Grocery Stores Index</h1>
+<hr>
+
 <p><%= link_to 'New Grocery Store', '/grocery_stores/new', class: "button button_create", method: :get %></p>
 <section id="grocery_stores">
 <% @grocery_stores.each do |grocery_store| %>
-  <h1>_____________________________________________</h1>
   <h2><a href="/grocery_stores/<%= grocery_store.id %>"><%= grocery_store.name %></a></h2>
   <p id="address">Address: <%= grocery_store.address %></p>
   <p>Created at: <%= grocery_store.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
   <p>Created at: <%= grocery_store.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
   <p>
-    <%= link_to 'Update Store', "/grocery_stores/#{grocery_store.id}/edit", class: "button button2", method: :get %>
+    <%= link_to 'Update Store', "/grocery_stores/#{grocery_store.id}/edit", class: "button button_edit", method: :get %>
     <%= link_to 'Delete Store', "/grocery_stores/#{grocery_store.id}/delete", class: "button button_delete", method: :delete %>
   </p>
+  <h1>_____________________________________________</h1>
 <% end %>
 </section>
