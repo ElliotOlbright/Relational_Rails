@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get '/grocery_stores/:grocery_store_id/groceries', to: 'grocery_store_groceries#index'
   get '/grocery_stores/:grocery_store_id/groceries/new', to: 'grocery_store_groceries#new'
   
-  get '/groceries/:grocery_store_id', to: 'groceries#show'
   post '/grocery_stores/:grocery_store_id/groceries', to: 'grocery_store_groceries#create'
+  get '/groceries/:grocery_store_id', to: 'groceries#show'
+  delete '/groceries/:id/delete', to: 'groceries#destroy'
 end
