@@ -3,6 +3,8 @@ class GroceryStoreGroceriesController < ApplicationController
     @grocery_store = GroceryStore.find(params[:grocery_store_id])
     if params[:sort] == "name"
       @groceries = @grocery_store.groceries.sort_by{ |grocery| grocery.name}
+    elsif params[:price].present?
+      @groceries = @grocery_store.groceries.where("price > ?", params[:price])
     else
       @groceries = @grocery_store.groceries
     end

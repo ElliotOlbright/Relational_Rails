@@ -154,5 +154,35 @@ describe 'Grocery Store Groceries page' do
         expect(all("#name")[2].text).to eq("#{grocery1.name}")
       end
     end
+
+    it 'can filter price by given value in search field' do
+      store1 = GroceryStore.create!(
+        name: 'Albertsons', 
+        address: '1234 Fake Street', 
+        open_24_hours: false
+      )
+      grocery1 = store1.groceries.create!(
+        name: 'Fishy Bits', 
+        price: 7.99, 
+        in_stock: true
+      )
+      grocery2 = store1.groceries.create!(
+        name: 'Almond Slams', 
+        price: 8.99, 
+        in_stock: true
+      )
+      grocery3 = store1.groceries.create!(
+        name: 'Devil Rolls', 
+        price: 9.99, 
+        in_stock: true
+      )
+      visit "/grocery_stores/#{store1.id}/groceries"
+
+      fill_in :price, with: '8.00'
+      click_button('Submit')
+      expect(page).not_to have_content(grocery1.name)
+      expect(page).to have_content(grocery2.name)
+      expect(page).to have_content(grocery3.name)
+    end
   end
 end

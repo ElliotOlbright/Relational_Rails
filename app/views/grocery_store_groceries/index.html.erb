@@ -10,8 +10,20 @@
 <h2>Store: <%= @grocery_store.name %> </h2>
 
 <p><%= link_to 'Create Grocery', "/grocery_stores/#{@grocery_store.id}/groceries/new", class: "button button_create", method: :get %></p>
-<p>Sort:
-  <%= link_to 'Alphabetically', sort: "name" %>
+
+<%= form_tag "/grocery_stores/#{@grocery_store.id}/groceries", method: :get do %>
+<p>Show prices above:</p>
+<p>
+  <%= label_tag :price, '$' %>
+  <%= text_field_tag :price %><br>
+
+  <%= submit_tag 'Submit' %>
+</p>
+<% end %>
+
+
+<p><b>Sort:</b>
+  <u><%= link_to 'Alphabetically', sort: "name" %></u>
 </p>
 <section id="store_groceries">
 <% @groceries.each do |grocery| %>
