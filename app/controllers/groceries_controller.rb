@@ -13,9 +13,12 @@ class GroceriesController < ApplicationController
 
   def update
     @grocery = Grocery.find(params[:id])
-    @grocery.update(grocery_params)
-    @grocery.save
-  
+    grocery_params.each do |attr, value|
+      if value.present?
+        @grocery[attr] = value
+        @grocery.save
+      end
+    end
     redirect_to "/groceries/#{@grocery.id}"
   end
 

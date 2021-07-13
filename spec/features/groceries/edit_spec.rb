@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'grocery edit page' do
+RSpec.describe 'Grocery edit page' do
   before :each do
     @store1 = GroceryStore.create!(
       name: 'Albertsons', 
@@ -55,6 +55,19 @@ RSpec.describe 'grocery edit page' do
       expect(current_path).to eq("/groceries/#{@grocery1.id}")
       expect(page).to have_content('Example Name')
       expect(page).to have_content('1.05')
+      expect(page).to have_content('true')
+    end
+
+    it 'leaves attributes alone if field is blank' do
+      visit "/groceries/#{@grocery1.id}/edit"
+      fill_in :name, with: ""
+      fill_in :price, with: ""
+      fill_in :in_stock, with: ""
+      click_button('Update Grocery')
+
+      expect(current_path).to eq("/groceries/#{@grocery1.id}")
+      expect(page).to have_content('Fishy Bits')
+      expect(page).to have_content('7.99')
       expect(page).to have_content('true')
     end
   end
