@@ -1,6 +1,6 @@
 class GroceriesController < ApplicationController
   def index
-    @groceries = Grocery.all
+    @groceries = Grocery.where(in_stock: true)
   end
 
   def show
