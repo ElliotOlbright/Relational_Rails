@@ -1,6 +1,19 @@
 require 'rails_helper'
 
-describe 'Grocery Stores index page' do 
+describe 'Grocery Stores index page' do
+  before :each do
+    @store1 = GroceryStore.create!(
+      name: 'Albertsons', 
+      address: '1234 Fake Street', 
+      open_24_hours: false
+    )
+    @store2 = GroceryStore.create!(
+      name: 'Stater Bros', 
+      address: '2345 Chump Boulevard', 
+      open_24_hours: true
+    )
+  end
+
   describe 'navigation' do
     it 'can take the user to the HomePage' do 
       visit "/grocery_stores"
@@ -19,33 +32,13 @@ describe 'Grocery Stores index page' do
 
   describe 'features' do
     it 'can see all store names' do 
-      store1 = GroceryStore.create!(
-        name: 'Albertsons', 
-        address: '1234 Fake Street', 
-        open_24_hours: false
-      )
-      store2 = GroceryStore.create!(
-        name: 'Stater Bros', 
-        address: '2345 Chump Boulevard', 
-        open_24_hours: true
-      )
       visit '/grocery_stores'
 
-      expect(page).to have_content(store1.name)
-      expect(page).to have_content(store2.name)
+      expect(page).to have_content(@store1.name)
+      expect(page).to have_content(@store2.name)
     end
 
     it 'can dislpay stores from newest to oldest' do 
-      store1 = GroceryStore.create!(
-        name: 'Food 4 Less', 
-        address: '6789 Cow Circle', 
-        open_24_hours: true
-      )
-      store2 = GroceryStore.create!(
-        name: 'Rite Aid', 
-        address: '5678 Banana Avenue', 
-        open_24_hours: false
-      )
       store3 = GroceryStore.create!(
         name: 'CVS', 
         address: '4567 Woke Place', 
@@ -55,8 +48,8 @@ describe 'Grocery Stores index page' do
 
       within("#grocery_stores") do 
         expect(all("#address")[0].text).to eq("Address: #{store3.address}")
-        expect(all("#address")[1].text).to eq("Address: #{store2.address}")
-        expect(all("#address")[2].text).to eq("Address: #{store1.address}")
+        expect(all("#address")[1].text).to eq("Address: #{@store2.address}")
+        expect(all("#address")[2].text).to eq("Address: #{@store1.address}")
       end 
     end
 
@@ -69,34 +62,19 @@ describe 'Grocery Stores index page' do
     end
 
     it 'can see link to edit store' do
-      store1 = GroceryStore.create!(
-        name: 'Food 4 Less', 
-        address: '6789 Cow Circle', 
-        open_24_hours: true
-      )
       visit '/grocery_stores'
 
       expect(page).to have_content('Update Store')
     end
 
     it 'can delete store' do
-      store1 = GroceryStore.create!(
-        name: 'Albertsons', 
-        address: '1234 Fake Street', 
-        open_24_hours: false
-      )
-      store2 = GroceryStore.create!(
-        name: 'Stater Bros', 
-        address: '2345 Chump Boulevard', 
-        open_24_hours: true
-      )
-      visit "/grocery_stores/#{store1.id}"
+      visit "/grocery_stores/#{@store1.id}"
 
       expect(page).to have_content("Delete Store")
       click_link("Delete Store")
       expect(current_path).to eq('/grocery_stores')
-      expect(page).to have_content(store2.name)
-      expect(page).not_to have_content(store1.name)
+      expect(page).to have_content(@store2.name)
+      expect(page).not_to have_content(@store1.name)
     end
   end
 end
