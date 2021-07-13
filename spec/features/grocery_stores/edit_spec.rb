@@ -33,7 +33,7 @@ RSpec.describe 'Grocery Stores edit page' do
   end
 
   describe 'features' do
-    it 'can update the attributes of a store' do
+    it 'can update store' do
       visit "grocery_stores/#{@store1.id}"
       
       click_link('Update Store')
@@ -46,6 +46,19 @@ RSpec.describe 'Grocery Stores edit page' do
       expect(current_path).to eq("/grocery_stores/#{@store1.id}")
       expect(page).to have_content("Example Name")
       expect(page).to have_content("Example Address")
+    end
+
+    it 'leaves attributes alone if field is blank' do
+      visit "/grocery_stores/#{@store1.id}/edit"
+      fill_in :name, with: ""
+      fill_in :address, with: ""
+      fill_in :open_24_hours, with: ""
+      click_button('Update Store')
+
+      expect(current_path).to eq("/grocery_stores/#{@store1.id}")
+      expect(page).to have_content("Albertsons")
+      expect(page).to have_content("1234 Fake Street")
+      expect(page).to have_content("false")
     end
   end
 end
