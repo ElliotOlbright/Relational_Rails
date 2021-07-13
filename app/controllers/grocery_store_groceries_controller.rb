@@ -1,7 +1,11 @@
 class GroceryStoreGroceriesController < ApplicationController
   def index
     @grocery_store = GroceryStore.find(params[:grocery_store_id])
-    @groceries = @grocery_store.groceries
+    if params[:sort] == "name"
+      @groceries = @grocery_store.groceries.sort_by{ |grocery| grocery.name}
+    else
+      @groceries = @grocery_store.groceries
+    end
   end
 
   def new
