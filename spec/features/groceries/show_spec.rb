@@ -42,13 +42,11 @@ describe 'Groceries page' do
         address: '1234 Fake Street', 
         open_24_hours: false
       )
-
       grocery1 = store1.groceries.create!(
         name: 'Fishy Bits', 
         price: 7.99, 
         in_stock: true
       )
-
       visit "/groceries/#{grocery1.id}"
     
       click_link('Go to Groceries')
@@ -63,14 +61,13 @@ describe 'Groceries page' do
         address: '1234 Fake Street', 
         open_24_hours: false
       )
-
       grocery1 = store1.groceries.create!(
         name: 'Fishy Bits', 
         price: 7.99, 
         in_stock: true
       )
-
       visit "/groceries/#{grocery1.id}"
+
       expect(page).to have_content(grocery1.name)
       expect(page).to have_content("Price: #{grocery1.price}")
       expect(page).to have_content(grocery1.in_stock)
@@ -87,8 +84,8 @@ describe 'Groceries page' do
         price: 7.99, 
         in_stock: true
       )
-
       visit "/groceries/#{grocery1.id}"
+
       expect(page).to have_content("Update Grocery")
       click_link("Update Grocery")
       expect(current_path).to eq("/groceries/#{grocery1.id}/edit")
@@ -108,7 +105,7 @@ describe 'Groceries page' do
       grocery2 = store1.groceries.create!(
         name: 'Cheese Sticks', 
         price: 9.99, 
-        in_stock: false
+        in_stock: true
       )
       visit "/groceries/#{grocery1.id}"
 

@@ -10,14 +10,13 @@ RSpec.describe GroceryStore do
         address: '1234 Fake Street', 
         open_24_hours: false
       )
-
       grocery1 = store1.groceries.create!(
-      name: 'Fishy Bits', 
-      price: 7.99, 
-      in_stock: true
-    )
+        name: 'Fishy Bits', 
+        price: 7.99, 
+        in_stock: true
+      )
 
-    expect(store1.grocery_count).to eq(1)
+      expect(store1.grocery_count).to eq(1)
     end
   end
 end

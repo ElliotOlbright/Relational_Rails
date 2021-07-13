@@ -73,9 +73,9 @@ describe 'Grocery Store Groceries page' do
         open_24_hours: false
       )
       visit "grocery_stores/#{store1.id}"
+
       click_link("Go to this store's groceries")
       expect(page).to have_content('Create Grocery')
-
       click_link('Create Grocery')
       expect(page).to have_content('Grocery name:')
       expect(page).to have_content('Grocery price:')
@@ -93,8 +93,8 @@ describe 'Grocery Store Groceries page' do
         price: 7.99, 
         in_stock: true
       )
-
       visit "/grocery_stores/#{store1.id}/groceries"
+
       expect(page).to have_content("Update Grocery")
     end
 
@@ -111,6 +111,7 @@ describe 'Grocery Store Groceries page' do
       )
       visit "/grocery_stores/#{store1.id}/groceries"
 
+      expect(page).to have_content(grocery1.name)
       expect(page).to have_content("Delete Grocery")
       click_link("Delete Grocery")
       expect(current_path).to eq('/groceries')
@@ -139,17 +140,49 @@ describe 'Grocery Store Groceries page' do
         in_stock: true
       )
       visit "/grocery_stores/#{store1.id}/groceries"
+
       within("#store_groceries") do
         expect(all("#name")[0].text).to eq("#{grocery1.name}")
         expect(all("#name")[1].text).to eq("#{grocery2.name}")
         expect(all("#name")[2].text).to eq("#{grocery3.name}")
       end
+      
       click_link 'Alphabetically'
       within("#store_groceries") do
         expect(all("#name")[0].text).to eq("#{grocery2.name}")
         expect(all("#name")[1].text).to eq("#{grocery3.name}")
         expect(all("#name")[2].text).to eq("#{grocery1.name}")
       end
+    end
+
+    it 'can filter price by given value in search field' do
+      store1 = GroceryStore.create!(
+        name: 'Albertsons', 
+        address: '1234 Fake Street', 
+        open_24_hours: false
+      )
+      grocery1 = store1.groceries.create!(
+        name: 'Fishy Bits', 
+        price: 7.99, 
+        in_stock: true
+      )
+      grocery2 = store1.groceries.create!(
+        name: 'Almond Slams', 
+        price: 8.99, 
+        in_stock: true
+      )
+      grocery3 = store1.groceries.create!(
+        name: 'Devil Rolls', 
+        price: 9.99, 
+        in_stock: true
+      )
+      visit "/grocery_stores/#{store1.id}/groceries"
+
+      fill_in :price, with: '8.00'
+      click_button('Submit')
+      expect(page).not_to have_content(grocery1.name)
+      expect(page).to have_content(grocery2.name)
+      expect(page).to have_content(grocery3.name)
     end
   end
 end
