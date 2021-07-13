@@ -32,7 +32,7 @@ describe 'Groceries index page' do
       grocery2 = store1.groceries.create!(
         name: 'Cheese Sticks', 
         price: 9.99, 
-        in_stock: false
+        in_stock: true
       )
       visit '/groceries'
 
@@ -55,8 +55,8 @@ describe 'Groceries index page' do
         price: 7.99, 
         in_stock: true
       )
-
       visit "/groceries"
+
       expect(page).to have_content("Update Grocery")
     end
 
@@ -74,7 +74,7 @@ describe 'Groceries index page' do
       grocery2 = store1.groceries.create!(
         name: 'Cheese Sticks', 
         price: 9.99, 
-        in_stock: false
+        in_stock: true
       )
       visit "/groceries/#{grocery1.id}"
 

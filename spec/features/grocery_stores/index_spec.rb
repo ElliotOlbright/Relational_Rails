@@ -36,30 +36,27 @@ describe 'Grocery Stores index page' do
     end
 
     it 'can dislpay stores from newest to oldest' do 
-      @store1 = GroceryStore.create!(
+      store1 = GroceryStore.create!(
         name: 'Food 4 Less', 
         address: '6789 Cow Circle', 
         open_24_hours: true
       )
-
-      @store2 = GroceryStore.create!(
+      store2 = GroceryStore.create!(
         name: 'Rite Aid', 
         address: '5678 Banana Avenue', 
         open_24_hours: false
       )
-
-      @store3 = GroceryStore.create!(
+      store3 = GroceryStore.create!(
         name: 'CVS', 
         address: '4567 Woke Place', 
         open_24_hours: true
       )
-
       visit "/grocery_stores"
 
       within("#grocery_stores") do 
-        expect(all("#address")[0].text).to eq("Address: #{@store3.address}")
-        expect(all("#address")[1].text).to eq("Address: #{@store2.address}")
-        expect(all("#address")[2].text).to eq("Address: #{@store1.address}")
+        expect(all("#address")[0].text).to eq("Address: #{store3.address}")
+        expect(all("#address")[1].text).to eq("Address: #{store2.address}")
+        expect(all("#address")[2].text).to eq("Address: #{store1.address}")
       end 
     end
 

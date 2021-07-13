@@ -46,13 +46,11 @@ describe 'Grocery Stores page' do
         address: '1234 Fake Street', 
         open_24_hours: false
       )
-
       store2 = GroceryStore.create!(
         name: 'Stater Bros', 
         address: '2345 Chump Boulevard', 
         open_24_hours: true
       )
-
       visit "/grocery_stores"
 
       expect(page).to have_content(store1.name)
@@ -67,7 +65,6 @@ describe 'Grocery Stores page' do
         address: '1234 Fake Street', 
         open_24_hours: false
       )
-
       grocery1 = store1.groceries.create!(
         name: 'Fishy Bits', 
         price: 7.99,
@@ -75,7 +72,7 @@ describe 'Grocery Stores page' do
       )
       visit "/grocery_stores/#{store1.id}"
 
-      expect(page).to have_content("This store has #{1} groceries")
+      expect(page).to have_content("This store has 1 groceries")
     end 
 
     it 'can take the user to the inventory page' do 
