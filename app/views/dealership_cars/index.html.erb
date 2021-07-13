@@ -22,10 +22,10 @@
   </p>
 <% end %>
 
-
+<section id="cars">
 <% @cars.each do |car| %>
   <h1>_____________________________________________</h1>
-  <h3> <%= car.model %></h3>
+  <h3 id="car"> <%= car.model %></h3>
   <p>Model: <%= car.model %></p>
   <p>Make: <%= car.make %></p>
   <p>Year: <%= car.year %></p>
@@ -35,3 +35,4 @@
     <%= link_to "Delete Car", "/cars/#{car.id}/delete", class:"button button_delete", method: :delete %>
   </p>
 <% end %>
+</section>

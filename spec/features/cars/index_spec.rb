@@ -57,4 +57,21 @@ describe 'Cars index page' do
     expect(page).to have_no_content(@lambo.model)
   end 
 
+  it 'can take filter car model by user value' do 
+    r8 = @dealer1.cars.create!(model: 'r8', 
+                              make: 'Audi', 
+                              year: 3000, 
+                              under_100k_miles: true
+                            )
+    visit "/cars"
+
+    expect(current_path).to eq('/cars')
+
+    fill_in :make_of_car, with: 'Audi'
+
+    click_button('Search')
+    expect(current_path).to eq('/cars')
+    expect(page).to have_content(r8.make)
+  end 
+
 end 

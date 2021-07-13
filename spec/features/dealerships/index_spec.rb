@@ -155,5 +155,24 @@ describe 'Dealerships index page' do
     expect(current_path).to eq('/dealerships')
     expect(page).to have_no_content(dealer1.name)
   end 
-end 
 
+  it 'can take filter Dealerships displayed by user value' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                address: '4200 high st', 
+                                open_weekends: true, 
+                                years_open: 42
+                              )
+
+    dealer2 = Dealership.create!(name: 'Dealer2', 
+                                address: '6925 ride st', 
+                                open_weekends: false, 
+                                years_open: 23
+                              )
+    visit '/dealerships'
+    fill_in :dealer_name, with: 'Dealer2'
+
+    click_button('Search')
+    expect(current_path).to eq('/dealerships')
+    expect(page).to have_content(dealer2.name)
+  end 
+end 

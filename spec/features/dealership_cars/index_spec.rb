@@ -67,16 +67,36 @@ describe 'Dealership Cars page' do
     expect(current_path).to eq("/dealerships/#{@dealer1.id}/new")
   end 
 
-  it 'can take filter car display by user vaule' do 
-
+  it 'can take filter car display by user value' do 
+    r8 = @dealer1.cars.create!(model: 'r8', 
+                              make: 'Audi', 
+                              year: 3000, 
+                              under_100k_miles: true
+                            )
     visit "/dealerships/#{@dealer1.id}/cars"
 
     expect(current_path).to eq("/dealerships/#{@dealer1.id}/cars")
 
     fill_in :age, with: "2220"
 
-
     click_button('Return Cars after Year')
     expect(current_path).to eq("/dealerships/#{@dealer1.id}/cars")
+    expect(page).to have_content(r8.model)
   end 
+
+  it 'can display by alphabet' do 
+    r8 = @dealer1.cars.create!(model: 'r8', 
+                              make: 'Audi', 
+                              year: 3000, 
+                              under_100k_miles: true
+                            )
+
+    visit "/dealerships/#{@dealer1.id}/cars"
+    click_link "Alphabetize Cars"
+
+    within("#cars") do 
+      expect(all("#car")[1].text).to have_content(r8.model)
+      expect(all("#car")[0].text).to have_content(@lambo.model)
+    end 
+  end
 end 
