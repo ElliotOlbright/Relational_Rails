@@ -13,6 +13,8 @@ describe 'Dealership Cars page' do
                                   year: 2020, 
                                   under_100k_miles: true
                                 )
+
+    visit "/dealerships/#{@dealer1.id}/cars"
   end
 
   it 'can see all dealership cars make and year' do 
@@ -22,9 +24,8 @@ describe 'Dealership Cars page' do
                                 year: 2022, 
                                 under_100k_miles: true
                               )   
-    
     visit "/dealerships/#{@dealer1.id}/cars"
-    
+
     expect(page).to have_content("#{@dealer1.name}")
     expect(page).to have_content("Model: #{@lambo.model}")
     expect(page).to have_content(@lambo.make)
@@ -34,35 +35,24 @@ describe 'Dealership Cars page' do
 
   it 'can take the user to the home page' do 
 
-  visit "/dealerships/#{@dealer1.id}/cars"
-      
-      click_link('Go to HomePage')
-      expect(current_path).to eq('/')
-    end 
+    click_link('Go to HomePage')
+    expect(current_path).to eq('/')
+  end 
 
   it 'can take the user to the dealership page' do 
-
-    visit "/dealerships/#{@dealer1.id}/cars"
       
-        click_link('Go to Dealerships')
-        expect(current_path).to eq('/dealerships')
+    click_link('Go to Dealerships')
+    expect(current_path).to eq('/dealerships')
   end 
 
   it 'can take the user to the car page' do 
- 
-    visit "/dealerships/#{@dealer1.id}/cars"
-      
-        click_link('Go to Cars')
-        expect(current_path).to eq('/cars')
+    
+    click_link('Go to Cars')
+    expect(current_path).to eq('/cars')
   end 
 
   it 'can take the user to add a car to the lot' do 
-
-    visit "/dealerships/#{@dealer1.id}/cars"
-
-    expect(current_path).to eq("/dealerships/#{@dealer1.id}/cars")
-
-
+   
     click_link('Add Car to Lot')
     expect(current_path).to eq("/dealerships/#{@dealer1.id}/new")
   end 
@@ -73,9 +63,6 @@ describe 'Dealership Cars page' do
                               year: 3000, 
                               under_100k_miles: true
                             )
-    visit "/dealerships/#{@dealer1.id}/cars"
-
-    expect(current_path).to eq("/dealerships/#{@dealer1.id}/cars")
 
     fill_in :age, with: "2220"
 
@@ -91,7 +78,6 @@ describe 'Dealership Cars page' do
                               under_100k_miles: true
                             )
 
-    visit "/dealerships/#{@dealer1.id}/cars"
     click_link "Alphabetize Cars"
 
     within("#cars") do 

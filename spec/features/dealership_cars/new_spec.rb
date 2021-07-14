@@ -13,17 +13,17 @@ describe 'Dealership Cars New page' do
                                   year: 2020, 
                                   under_100k_miles: true
                                 )
+    
+    visit "/dealerships/#{@dealer1.id}/new"
   end
 
   it 'Can see Add car model' do 
     
-    visit "/dealerships/#{@dealer1.id}/new"
     expect(page).to have_content('Add Car to Lot')
   end 
 
   it 'Can see Add Car Form' do 
-    
-    visit "/dealerships/#{@dealer1.id}/new"
+
     expect(page).to have_field(:model)
     expect(page).to have_field(:make)
     expect(page).to have_field(:year)
@@ -31,7 +31,6 @@ describe 'Dealership Cars New page' do
   end 
 
   it 'Can create a new Car' do 
-    visit "/dealerships/#{@dealer1.id}/new"
 
     click_button ('Add to Lot')
 
@@ -41,7 +40,6 @@ describe 'Dealership Cars New page' do
 
   it 'can see fill in New Car Form' do 
 
-    visit "/dealerships/#{@dealer1.id}/new"
     fill_in :model, with: "Example Model"
     fill_in :Make, with: "Example Make"
     fill_in :year, with: "2030"

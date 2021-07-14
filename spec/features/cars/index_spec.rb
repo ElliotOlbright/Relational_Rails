@@ -13,41 +13,35 @@ describe 'Cars index page' do
                                   year: 2020, 
                                   under_100k_miles: true
                                 )
+
+    visit "/cars"
   end
   
   it 'can see all cars models and make' do 
-    
-    visit '/cars'
-    
+ 
     expect(page).to have_content(@lambo.make)
     expect(page).to have_content("Year: #{@lambo.year}")
   end 
 
   it 'can take the user to the home page' do 
-    visit '/cars'
     
     click_link('Go to HomePage')
     expect(current_path).to eq('/')
   end 
 
   it 'can take the user to the dealership page' do 
-    visit '/cars'
   
     click_link('Go to Dealerships')
     expect(current_path).to eq('/dealerships')
   end 
 
   it 'can take the user to the edit car page' do 
-
-    visit '/cars'
   
     click_link('Edit Car')
     expect(current_path).to eq("/cars/#{@lambo.id}/edit")
   end 
 
   it 'can take the user to delete a car' do 
-
-    visit '/cars'
 
     expect(current_path).to eq('/cars')
     expect(page).to have_content(@lambo.model)
@@ -63,9 +57,6 @@ describe 'Cars index page' do
                               year: 3000, 
                               under_100k_miles: true
                             )
-    visit "/cars"
-
-    expect(current_path).to eq('/cars')
 
     fill_in :make_of_car, with: 'Audi'
 
@@ -73,5 +64,4 @@ describe 'Cars index page' do
     expect(current_path).to eq('/cars')
     expect(page).to have_content(r8.make)
   end 
-
 end 

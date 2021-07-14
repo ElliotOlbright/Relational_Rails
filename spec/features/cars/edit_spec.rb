@@ -13,17 +13,13 @@ describe 'Cars Edit page' do
                                   year: 2020, 
                                   under_100k_miles: true
                                 )
+
+    visit "/cars/#{@lambo.id}/edit"
   end
   
-  it 'can see Update car model' do 
-    
-    visit "/cars/#{@lambo.id}/edit"
-    expect(page).to have_content("Update #{@lambo.make}")
-  end 
-
   it 'can see Update car form' do 
-    
-    visit "/cars/#{@lambo.id}/edit"
+
+    expect(page).to have_content("Update #{@lambo.make}")
 
     expect(page).to have_field("Model of Your Car (#{@lambo.model})")
     expect(page).to have_field("Make of your Car (#{@lambo.make})")
@@ -31,17 +27,7 @@ describe 'Cars Edit page' do
     expect(page).to have_field("Under 100k Miles (#{@lambo.under_100k_miles})")
   end 
 
-  it 'can see Update car form' do 
- 
-    visit "/cars/#{@lambo.id}/edit"
-
-    click_button('Update')
-    expect(page).to have_content("Model:")
-  end 
-
   it 'can see fill in Car edit form' do 
-
-    visit "/cars/#{@lambo.id}/edit"
 
     fill_in :model, with: "Example Model"
     fill_in :make, with: "Example Make"
@@ -57,8 +43,6 @@ describe 'Cars Edit page' do
   end 
 
   it 'can ignore blanks in Car edit form' do 
-
-    visit "/cars/#{@lambo.id}/edit"
 
     fill_in :model, with: ""
     fill_in :make, with: ""

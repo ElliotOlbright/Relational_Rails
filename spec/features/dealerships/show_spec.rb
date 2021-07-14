@@ -63,14 +63,12 @@ describe 'Dealerships show page CRUD' do
     visit '/dealerships'
   end 
   it 'can take the user to edit a dealership' do
-    expect(current_path).to eq('/dealerships')
 
     click_link('Edit Dealership')
     expect(current_path).to eq("/dealerships/#{@dealer1.id}/edit")
   end 
 
   it 'can take the user to delete a dealership' do 
-    expect(current_path).to eq('/dealerships')
 
     click_link('Delete Dealership')
     expect(current_path).to eq('/dealerships')
@@ -78,7 +76,6 @@ describe 'Dealerships show page CRUD' do
   end 
 
   it 'can take the user to create a new dealership' do 
-    expect(current_path).to eq('/dealerships')
 
     click_link('New Dealership')
     expect(current_path).to eq('/dealerships/new')

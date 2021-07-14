@@ -13,38 +13,22 @@ describe 'Dealership Edit page' do
                                   year: 2020, 
                                   under_100k_miles: true
                                 )
-  end
-  it 'can see Update Dealership' do 
- 
+
     visit "/dealerships/#{@dealer1.id}/edit"
-    expect(page).to have_content("Update #{@dealer1.name}")
-  end 
+  end
+
 
   it 'can see Update Dealership form' do 
-    
-    visit "/dealerships/#{@dealer1.id}/edit"
+
+    expect(page).to have_content("Update #{@dealer1.name}")
     expect(page).to have_field(:name)
     expect(page).to have_field(:address)
     expect(page).to have_field(:years_open)
     expect(page).to have_field(:open_weekends)
   end 
 
-  it 'can see Update Dealership form' do 
-    
-    visit "/dealerships/#{@dealer1.id}/edit"
-    fill_in :name, with: "Example Name"
-    fill_in :address, with: "Example Address"
-    fill_in :open_weekends, with: "true"
-    fill_in :years_open, with: "2314"
-
-    click_button('Update')
-    expect(current_path).to eq("/dealerships/#{@dealer1.id}")
-    expect(page).to have_content("Address: Example Address")
-  end 
-
   it 'can update in Dealership form' do 
 
-    visit "/dealerships/#{@dealer1.id}/edit"
     fill_in :name, with: "Example Name"
     fill_in :address, with: "Example Address"
     fill_in :open_weekends, with: "true"
@@ -59,7 +43,6 @@ describe 'Dealership Edit page' do
 
   it 'can ignore update in Dealership form' do 
 
-    visit "/dealerships/#{@dealer1.id}/edit"
     fill_in :name, with: ""
     fill_in :address, with: ""
     fill_in :open_weekends, with: ""

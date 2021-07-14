@@ -13,52 +13,42 @@ describe 'Cars page' do
                                   year: 2020, 
                                   under_100k_miles: true
                                 )
+
+    visit "/cars/#{@lambo.id}"
   end
 
   it 'can see all cars make and year' do 
     
-    visit "/cars/#{@lambo.id}"
     expect(page).to have_content(@lambo.make)
     expect(page).to have_content("Year: #{@lambo.year}")
   end 
 
   it 'can take the user to the home page' do 
- 
-  visit "/cars/#{@lambo.id}"
       
-      click_link('Go to HomePage')
-      expect(current_path).to eq('/')
-    end 
+    click_link('Go to HomePage')
+    expect(current_path).to eq('/')
+  end 
 
   it 'can take the user to the dealership page' do 
-
-    visit "/cars/#{@lambo.id}"
       
-        click_link('Go to Dealerships')
-        expect(current_path).to eq('/dealerships')
+    click_link('Go to Dealerships')
+    expect(current_path).to eq('/dealerships')
   end 
 
   it 'can take the user to the car page' do 
-
-    visit "/cars/#{@lambo.id}"
       
-        click_link('Go to Cars')
-        expect(current_path).to eq('/cars')
+    click_link('Go to Cars')
+    expect(current_path).to eq('/cars')
   end 
 
   it 'can take the user to the edit car page' do 
  
-    visit "/cars/#{@lambo.id}"
-  
     click_link('Edit Car')
     expect(current_path).to eq("/cars/#{@lambo.id}/edit")
   end 
 
   it 'can take the user to delete a car' do 
-
-    visit "/cars/#{@lambo.id}"
-
-    expect(current_path).to eq("/cars/#{@lambo.id}")
+    
     expect(page).to have_content(@lambo.model)
 
     click_link('Delete Car')
