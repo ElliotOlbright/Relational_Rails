@@ -30,16 +30,14 @@ class DealershipsController < ApplicationController
 
   def update 
     @dealership = Dealership.find(params[:id])
-    @dealership.update(
-                      name:params[:name],
-                      address:params[:address],
-                      open_weekends:params[:open_weekends],
-                      years_open:params[:years_open]
-                    )
-
-    # @dealership.save
+    dealer_params.each do |attr, value| 
+      if value.present?
+        @dealership[attr] = value
+        @dealership.save
+      end 
+    end 
   
-    redirect_to '/dealerships'
+    redirect_to "/dealerships/#{@dealership.id}"
   end 
 
   def destroy
@@ -47,5 +45,10 @@ class DealershipsController < ApplicationController
 
     dealership.destroy
     redirect_to '/dealerships'
+  end
+
+private
+  def dealer_params
+    params.permit(:name, :address, :open_weekends, :years_open)
   end
 end

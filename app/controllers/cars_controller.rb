@@ -17,14 +17,14 @@ class CarsController < ApplicationController
 
   def update 
     @car = Car.find(params[:id])
-    @car.update(
-                model:params[:model],
-                make:params[:make],
-                year:params[:year],
-                under_100k_miles:params[:under_100k_miles]
-                )
-    @car.save
-  
+    # @car.attributes = car_params
+    car_params.each do |attr, value| 
+      if value.present?
+        @car[attr] = value
+        @car.save
+      end 
+    end 
+
     redirect_to "/cars/#{@car.id}"
   end
 
@@ -33,5 +33,10 @@ class CarsController < ApplicationController
 
     car.destroy
     redirect_to '/cars'
+  end
+
+private
+  def car_params
+    params.permit(:model, :make, :year, :under_100k_miles)
   end
 end 

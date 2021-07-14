@@ -55,5 +55,22 @@ describe 'Cars Edit page' do
     expect(page).to have_content("Make: Example Make")
     expect(page).to have_content("Year: 2012")
   end 
+
+  it 'can ignore blanks in Car edit form' do 
+
+    visit "/cars/#{@lambo.id}/edit"
+
+    fill_in :model, with: ""
+    fill_in :make, with: ""
+    fill_in :year, with: ""
+    fill_in :under_100k_miles, with: ""
+
+    click_button('Update')
+
+    expect(current_path).to eq("/cars/#{@lambo.id}")
+    expect(page).to have_content("Model: #{@lambo.model}")
+    expect(page).to have_content("Make: #{@lambo.make}")
+    expect(page).to have_content("Year: #{@lambo.year}")
+  end 
 end 
 
