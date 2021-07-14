@@ -39,7 +39,7 @@ The project home page and requirements can be found [here](https://backend.turin
 
 ## Getting Started
 
-**Fork this repository:** [Relational Rails](https://github.com/ElliotOlbright/Relational_Rails
+**Fork this repository:** [Relational Rails](https://github.com/ElliotOlbright/Relational_Rails)
 
 **Clone your forked repository:** Run `git clone` with the copied URL.
 
