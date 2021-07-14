@@ -1,7 +1,7 @@
 class DealershipsController < ApplicationController
   def index
     if params[:dealer_name].present?
-      @dealerships = Dealership.where("name like ?", "%#{params[:dealer_name]}%")
+      @dealerships = Dealership.where("lower(name) like ?", "%#{params[:dealer_name].downcase}%")
     else
       @dealerships = Dealership.order(created_at: :desc)
     end 

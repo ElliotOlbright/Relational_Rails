@@ -61,6 +61,7 @@ describe 'Cars index page' do
     fill_in :make_of_car, with: 'Audi'
 
     click_button('Search')
+
     expect(current_path).to eq('/cars')
     expect(page).to have_content(r8.make)
   end 
