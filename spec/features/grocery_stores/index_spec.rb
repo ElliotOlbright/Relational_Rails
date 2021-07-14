@@ -74,7 +74,21 @@ describe 'Grocery Stores index page' do
       click_link("Delete Store")
       expect(current_path).to eq('/grocery_stores')
       expect(page).to have_content(@store2.name)
-      expect(page).not_to have_content(@store1.name)
+      expect(page).to_not have_content(@store1.name)
+    end
+
+    it 'shows case-insensitive exact or partial search matches' do
+      visit '/grocery_stores'
+      fill_in :name, with: 'albert'
+      click_button('Search')
+      expect(page).to have_content('Albertsons')
+      expect(page).to_not have_content('Stater Bros')
+      
+      visit '/grocery_stores'
+      fill_in :name, with: 'Albertsons'
+      click_button('Search')
+      expect(page).to have_content('Albertsons')
+      expect(page).to_not have_content('State Bros')
     end
   end
 end
