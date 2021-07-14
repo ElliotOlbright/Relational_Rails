@@ -26,16 +26,12 @@ Learning goals and areas of focus consisted of:
 The project home page and requirements can be found [here](https://backend.turing.edu/module2/projects/relational_rails).
 
 ## Tools Used
-|             |               |
-|   :----:    |    :----:     |
-| Ruby 2.7.2  | SQL           |
-| Rails       | ActiveRecord  |
-| RSpec       | Capybara      |
-| Pry         | HTML5         |
-| SimpleCov   | CSS3          |
-| HoundCI     | ShouldaMatcher|
-| VSCode      | Launchy       |
-| GitHub      | Orderly       |
+|             |               |               |               |
+|   :----:    |    :----:     |    :----:     |    :----:     |
+| Ruby 2.7.2  | SQL           | SimpleCov     | CSS3          |
+| Rails       | ActiveRecord  | HoundCI       | ShouldaMatcher|
+| RSpec       | Capybara      | VSCode        | Launchy       |
+| Pry         | HTML5         | GitHub        | Orderly       |
 
 ## Getting Started
 
