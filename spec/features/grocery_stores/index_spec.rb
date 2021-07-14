@@ -5,12 +5,14 @@ describe 'Grocery Stores index page' do
     @store1 = GroceryStore.create!(
       name: 'Albertsons', 
       address: '1234 Fake Street', 
-      open_24_hours: false
+      open_24_hours: false,
+      departments: 5
     )
     @store2 = GroceryStore.create!(
       name: 'Stater Bros', 
       address: '2345 Chump Boulevard', 
-      open_24_hours: true
+      open_24_hours: true,
+      departments: 6
     )
   end
 
@@ -42,7 +44,8 @@ describe 'Grocery Stores index page' do
       store3 = GroceryStore.create!(
         name: 'CVS', 
         address: '4567 Woke Place', 
-        open_24_hours: true
+        open_24_hours: true,
+      departments: 4
       )
       visit "/grocery_stores"
 

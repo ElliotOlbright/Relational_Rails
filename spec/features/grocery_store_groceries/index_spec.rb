@@ -5,7 +5,8 @@ describe 'Grocery Store Groceries page' do
     @store1 = GroceryStore.create!(
       name: 'Albertsons', 
       address: '1234 Fake Street', 
-      open_24_hours: false
+      open_24_hours: false,
+      departments: 5
     )
     @grocery1 = @store1.groceries.create!(
       name: 'Fishy Bits', 

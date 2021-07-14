@@ -41,6 +41,6 @@ class GroceryStoresController < ApplicationController
 
 private
   def store_params
-    params.permit(:name, :address, :open_24_hours)
+    params.permit(:name, :address, :open_24_hours, :departments)
   end
 end

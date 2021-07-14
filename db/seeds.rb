@@ -43,12 +43,12 @@ dealer6.cars.create!(model: 'model x', make: 'Tesla', year: 2013, under_100k_mil
 Grocery.destroy_all
 GroceryStore.destroy_all
 
-albertsons = GroceryStore.create!(name: 'Albertsons', address: '1234 Fake Street', open_24_hours: false)
-stater_bros = GroceryStore.create!(name: 'Stater Bros', address: '2345 Chump Boulevard', open_24_hours: true)
-vons = GroceryStore.create!(name: 'Vons', address: '3456 What Way', open_24_hours: false)
-cvs = GroceryStore.create!(name: 'CVS', address: '4567 Woke Place', open_24_hours: true)
-rite_aid = GroceryStore.create!(name: 'Rite Aid', address: '5678 Banana Avenue', open_24_hours: false)
-food_4_less = GroceryStore.create!(name: 'Food 4 Less', address: '6789 Cow Circle', open_24_hours: true)
+albertsons = GroceryStore.create!(name: 'Albertsons', address: '1234 Fake Street', open_24_hours: false, departments: 5)
+stater_bros = GroceryStore.create!(name: 'Stater Bros', address: '2345 Chump Boulevard', open_24_hours: true, departments: 6)
+vons = GroceryStore.create!(name: 'Vons', address: '3456 What Way', open_24_hours: false, departments: 4)
+cvs = GroceryStore.create!(name: 'CVS', address: '4567 Woke Place', open_24_hours: true, departments: 3)
+rite_aid = GroceryStore.create!(name: 'Rite Aid', address: '5678 Banana Avenue', open_24_hours: false, departments: 5)
+food_4_less = GroceryStore.create!(name: 'Food 4 Less', address: '6789 Cow Circle', open_24_hours: true, departments: 6)
 
 albertsons.groceries.create!(name: 'Fishy Bits', price: 7.99, in_stock: true)
 albertsons.groceries.create!(name: 'Cheese Sticks', price: 9.99, in_stock: false)
