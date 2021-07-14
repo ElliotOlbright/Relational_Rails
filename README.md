@@ -5,17 +5,11 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- 
 - [Learning Goals](#learning-goals)
-- 
 - [Tools Used](#tools-used)
-- 
 - [Getting Started](#getting-started)
-- 
   - [Set-Up](#Set-up)
-  - 
 - [Self Assessment](#self-assessment)
-- 
 - [Contributors](#contributors)
 
 ## Overview
@@ -58,11 +52,17 @@ The project home page and requirements can be found [here](https://backend.turin
 ## Getting Started
 
 **Fork this repository:** [Relational Rails](https://github.com/ElliotOlbright/Relational_Rails
+
 **Clone your forked repository:** Run `git clone` with the copied URL.
+
 **Change Directory into Rails App** Run `cd Relational_Rails` in command line.
+
 **Create, Migrate, and Seed Database** Run `rails db:{create, migrate, seed}` in command line.
+
 **Run Rails Server in Command-Line** Run `rails s` in command line.
+
 **Open Web Browser and go to URL *Localhost:3000* ** Enjoy the app :)
+
 
 ## Contributors
 
