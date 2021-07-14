@@ -172,6 +172,7 @@ describe 'Dealerships index page' do
     fill_in :dealer_name, with: 'Dealer2'
 
     click_button('Search')
+
     expect(current_path).to eq('/dealerships')
     expect(page).to have_content(dealer2.name)
   end 
