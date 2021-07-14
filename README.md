@@ -26,7 +26,7 @@ Learning goals and areas of focus consisted of:
 The project home page and requirements can be found [here](https://backend.turing.edu/module2/projects/relational_rails).
 
 ## Tools Used
-| Tools Used                  |
+| Tools Used  |  Tools Used   |
 |   :----:    |    :----:     |
 | Ruby 2.7.2  | SQL           |
 | Rails       | ActiveRecord  |
