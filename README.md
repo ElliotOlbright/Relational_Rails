@@ -5,11 +5,17 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- 
 - [Learning Goals](#learning-goals)
+- 
 - [Tools Used](#tools-used)
+- 
 - [Getting Started](#getting-started)
+- 
   - [Set-Up](#Set-up)
+  - 
 - [Self Assessment](#self-assessment)
+- 
 - [Contributors](#contributors)
 
 ## Overview
