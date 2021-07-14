@@ -11,6 +11,7 @@
 <% @grocery_stores.each do |grocery_store| %>
   <h2><a href="/grocery_stores/<%= grocery_store.id %>"><%= grocery_store.name %></a></h2>
   <p id="address">Address: <%= grocery_store.address %></p>
+  <p>24-hr?: <%= grocery_store.open_24_hours %></p>
   <p># of departments: <%= grocery_store.departments %></p>
   <p>Created at: <%= grocery_store.created_at.strftime('%e %b %Y %H:%M:%S') %></p>
   <p>Updated at: <%= grocery_store.updated_at.strftime('%e %b %Y %H:%M:%S') %></p>
