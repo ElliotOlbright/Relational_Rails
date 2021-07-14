@@ -61,7 +61,7 @@ The project home page and requirements can be found [here](https://backend.turin
 
 **Run Rails Server in Command-Line** Run `rails s` in command line.
 
-**Open Web Browser and go to URL *Localhost:3000* ** Enjoy the app :)
+**Open Web Browser and go to URL *Localhost:3000*** Enjoy the app :)
 
 
 ## Contributors
