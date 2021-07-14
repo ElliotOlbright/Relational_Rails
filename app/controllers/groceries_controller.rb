@@ -1,6 +1,10 @@
 class GroceriesController < ApplicationController
   def index
-    @groceries = Grocery.where(in_stock: true)
+    if params[:name].present?
+      @groceries = Grocery.where("lower(name) LIKE ?", "%#{params[:name].downcase}%")
+    else
+      @groceries = Grocery.where(in_stock: true)
+    end
   end
 
   def show

@@ -1,6 +1,10 @@
 class GroceryStoresController < ApplicationController
   def index
-    @grocery_stores = GroceryStore.order(created_at: :desc)
+    if params[:name].present?
+      @grocery_stores = GroceryStore.where("lower(name) LIKE ?", "%#{params[:name].downcase}%")
+    else
+      @grocery_stores = GroceryStore.order(created_at: :desc)
+    end
   end
 
   def show
