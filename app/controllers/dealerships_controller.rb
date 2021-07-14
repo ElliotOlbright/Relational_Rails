@@ -5,7 +5,10 @@ class DealershipsController < ApplicationController
     else
       @dealerships = Dealership.order(created_at: :desc)
     end 
-  end
+  end     
+
+
+  
 
   def show
     @dealership = Dealership.find(params[:id])
