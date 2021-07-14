@@ -28,10 +28,10 @@ The project home page and requirements can be found [here](https://backend.turin
 ## Tools Used
 |             |               |               |               |
 |   :----:    |    :----:     |    :----:     |    :----:     |
-| Ruby 2.7.2  | SQL           | SimpleCov     | CSS3          |
-| Rails       | ActiveRecord  | HoundCI       | ShouldaMatcher|
-| RSpec       | Capybara      | VSCode        | Launchy       |
-| Pry         | HTML5         | GitHub        | Orderly       |
+| Ruby 2.7.2  | SQL           | ShouldaMatcher| Github        |
+| Rails       | ActiveRecord  | HoundCI       | VSCode        |
+| RSpec       | HTML5         | Capybara      | Launchy       |
+| Pry         | CSS3          | ShouldaMatcher| Orderly       |
 
 ## Getting Started
 
