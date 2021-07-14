@@ -10,14 +10,14 @@
 
 ## Overview
 
-[Relational Rails](https://github.com/ElliotOlbright/Relational_Rails) is a week long paired project during Mod 2 of 4 for Turing School's Back-End Engineering program.
+[Relational Rails](https://github.com/ElliotOlbright/Relational_Rails) is a week long paired project during Mod 2 of Turing School's Back-End Engineering program.
 
-The goal was to create a functioning Rails Application that can take users through a website and give them the ability to operate CRUD commands - Create, Read, Update and Destroy data while being able to veiw the changes on the website(Rails Application)
+The goal was to create a functioning Rails Application that can take users through a website and give them the ability to use CRUD commands to Create, Read, Update, and Destroy data while being able to veiw the changes on the website(Rails Application).
 
 ## Learning Goals
 
 Learning goals and areas of focus consisted of:
-- Design a one to many relationship using a schema designer
+- Design a One-to-Many relationship using a schema designer
 - Write migrations to create tables with columns of varying data types and foreign keys.
 - Use Rails to create web pages that allow users to CRUD resources
 - Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
@@ -26,7 +26,7 @@ Learning goals and areas of focus consisted of:
 The project home page and requirements can be found [here](https://backend.turing.edu/module2/projects/relational_rails).
 
 ## Tools Used
-| Tools Used  |  Tools Used   |
+| TOOLS       | USED          |
 |   :----:    |    :----:     |
 | Ruby 2.7.2  | SQL           |
 | Rails       | ActiveRecord  |
@@ -39,7 +39,7 @@ The project home page and requirements can be found [here](https://backend.turin
 
 ## Getting Started
 
-**Fork this repository:** [Relational Rails](https://github.com/ElliotOlbright/Relational_Rails)
+**Fork this repository:** [Relational Rails](https://github.com/ElliotOlbright/Relational_Rails
 
 **Clone your forked repository:** Run `git clone` with the copied URL.
 
