@@ -2,6 +2,8 @@ class DealershipsController < ApplicationController
   def index
     if params[:dealer_name].present?
       @dealerships = Dealership.where("lower(name) like ?", "%#{params[:dealer_name].downcase}%")
+    elsif params[:sort] == 'model'
+      @dealerships = Dealership.all.sort_by{ |dealership| -dealership.cars.count } 
     else
       @dealerships = Dealership.order(created_at: :desc)
     end 

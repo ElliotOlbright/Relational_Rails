@@ -23,6 +23,7 @@
     <h1>_____________________________________________</h1>
     <h2 id="name"><%= link_to dealership.name, "/dealerships/#{dealership.id}"%></h2>
     <p id="address"><%= dealership.address %></p>
+    <p> Number of Cars on Lot: <%= dealership.car_count %> </p>
     <p>
       <%= link_to 'Edit Dealership', "/dealerships/#{dealership.id}/edit", class:"button button_edit", method: :get %>
       <%= link_to 'Delete Dealership', "/dealerships/#{dealership.id}/delete", class:"button button_delete", method: :delete %>
