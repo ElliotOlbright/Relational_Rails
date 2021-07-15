@@ -59,9 +59,9 @@ From the main page, the user will be able to navigate through either *Car Dealer
 ## Contributors
 
 👤  **Elliot Olbright** (Dealership Branch)
-- Github: [Elliot Olbright](https://github.com/ElliotOlbright)
-- LinkedIn: [Elliot Olbright](https://www.linkedin.com/in/elliotolbright/)
+- [GitHub](https://github.com/ElliotOlbright)
+- [LinkedIn](https://www.linkedin.com/in/elliotolbright/)
 
 👤  **Matt Kragen** (Grocery Store Branch)
-- Github: [Matt Kragen](https://github.com/InOmn1aParatus)
-- LinkedIn: [Matt Kragen](https://www.linkedin.com/in/mattkragen/)
+- [GitHub](https://github.com/InOmn1aParatus)
+- [LinkedIn](https://www.linkedin.com/in/mattkragen/)
