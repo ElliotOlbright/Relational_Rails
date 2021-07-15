@@ -47,6 +47,8 @@ The project home page and requirements can be found [here](https://backend.turin
 
 **Open Web Browser and go to URL *Localhost:3000*** Enjoy the app :)
 
+## Database Schema
+[![Screen-Shot-2021-07-14-at-8-05-03-PM.png](https://i.postimg.cc/qv7KYrC9/Screen-Shot-2021-07-14-at-8-05-03-PM.png)](https://postimg.cc/PPBNpBy4)
 
 ## Contributors
 
