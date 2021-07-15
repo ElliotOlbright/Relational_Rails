@@ -6,6 +6,7 @@
 - [Learning Goals](#learning-goals)
 - [Tools Used](#tools-used)
 - [Getting Started](#getting-started)
+- [Database Schema](#database-schema)
 - [Contributors](#contributors)
 
 ## Overview
