@@ -9,13 +9,13 @@
 
 <%= form_tag "/grocery_stores/#{@grocery_store.id}", method: :patch do %>
 <p>
-  <%= label_tag :name, 'New store name:' %>
+  <%= label_tag :name, 'New name:' %>
   <%= text_field_tag :name %><br>
 
-  <%= label_tag :address, 'New store address:' %>
+  <%= label_tag :address, 'New address:' %>
   <%= text_field_tag :address %><br>
   
-  <%= label_tag :open_24_hours, '24-hr?:' %>
+  <%= label_tag :open_24_hours, '24-hr (true/false)?:' %>
   <%= text_field_tag :open_24_hours %><br>
   
   <%= label_tag :departments, '# of departments:' %>

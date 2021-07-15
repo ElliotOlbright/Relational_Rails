@@ -9,13 +9,13 @@
 
 <%= form_tag "/groceries/#{@grocery.id}", method: :patch do %>
 <p>
-  <%= label_tag :name, 'New grocery name:' %>
+  <%= label_tag :name, 'New name:' %>
   <%= text_field_tag :name %><br>
 
-  <%= label_tag :price, 'New grocery price:' %>
+  <%= label_tag :price, 'New price:' %>
   <%= text_field_tag :price %><br>
   
-  <%= label_tag :in_stock, 'In stock?' %>
+  <%= label_tag :in_stock, 'In stock(true/false)?' %>
   <%= text_field_tag :in_stock %><br>
 
   <%= submit_tag 'Update Grocery' %>
