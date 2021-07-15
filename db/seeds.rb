@@ -21,23 +21,19 @@ dealer2.cars.create!(model: 'RLX', make: 'Acura', year: 2001, under_100k_miles: 
 
 dealer3.cars.create!(model: 'x1', make: 'BMW', year: 2017, under_100k_miles: true)
 dealer3.cars.create!(model: 'm3', make: 'BMW', year: 1987, under_100k_miles: false)
-dealer3.cars.create!(model: '325i', make: 'BMW', year: 1992, under_100k_miles: false)
 dealer3.cars.create!(model: 'Z4', make: 'BMW', year: 2013, under_100k_miles: true)
 
 dealer4.cars.create!(model: 'a7', make: 'Audi', year: 2009, under_100k_miles: true)
-dealer4.cars.create!(model: 'r8', make: 'Audi', year: 2019, under_100k_miles: true)
-dealer4.cars.create!(model: 'q3', make: 'Audi', year: 2009, under_100k_miles: false)
 dealer4.cars.create!(model: 'a3', make: 'Audi', year: 1999, under_100k_miles: false)
 
 dealer5.cars.create!(model: 'Konna', make: 'Hyundai', year: 2000, under_100k_miles: false)
 dealer5.cars.create!(model: 'Accent', make: 'Hyundai', year: 2015, under_100k_miles: true)
 dealer5.cars.create!(model: 'Sante Fe', make: 'Hyundai', year: 2006, under_100k_miles: true)
-dealer5.cars.create!(model: 'Sonata', make: 'Hyundai', year: 2003, under_100k_miles: false)
+
 
 dealer6.cars.create!(model: 'model s', make: 'Tesla', year: 2012, under_100k_miles: true)
 dealer6.cars.create!(model: 'cybertruck', make: 'Tesla', year: 2022, under_100k_miles: true)
-dealer6.cars.create!(model: 'model 3', make: 'Tesla', year: 2016, under_100k_miles: true)
-dealer6.cars.create!(model: 'model x', make: 'Tesla', year: 2013, under_100k_miles: false)
+
 
 #Grocery Store and Groceries Seed
 Grocery.destroy_all

@@ -176,4 +176,49 @@ describe 'Dealerships index page' do
     expect(current_path).to eq('/dealerships')
     expect(page).to have_content(dealer2.name)
   end 
+
+  it 'can take filter Dealerships by cars on lot' do 
+    dealer1 = Dealership.create!(name: 'Dealer1', 
+                                address: '4200 high st', 
+                                open_weekends: true, 
+                                years_open: 42
+                              )
+
+    dealer2 = Dealership.create!(name: 'Dealer2', 
+                                address: '6925 ride st', 
+                                open_weekends: false, 
+                                years_open: 23
+                              )
+    dealer3 = Dealership.create!(name: 'Dealer3', 
+                                address: '65 small st', 
+                                open_weekends: true, 
+                                years_open: 12
+                              )
+
+    dealer1.cars.create!(model: 'WRX', make: 'Subaru', year: 2013, under_100k_miles: true)
+    dealer1.cars.create!(model: 'Outback', make: 'Subaru', year: 1998, under_100k_miles: false)
+    dealer1.cars.create!(model: 'Forester', make: 'Subaru', year: 2002, under_100k_miles: false)
+    dealer1.cars.create!(model: 'impreza', make: 'Subaru', year: 2012, under_100k_miles: true)
+    
+    dealer2.cars.create!(model: 'MDX', make: 'Acura', year: 2006, under_100k_miles: false)
+    dealer2.cars.create!(model: 'MLR', make: 'Acura', year: 1989, under_100k_miles: true)
+    
+    dealer3.cars.create!(model: 'x1', make: 'BMW', year: 2017, under_100k_miles: true)
+       
+    visit '/dealerships'
+
+    within("#dealerships")
+    expect(all("#name")[0].text).to eq(dealer3.name)
+    expect(all("#name")[1].text).to eq(dealer2.name)
+    expect(all("#name")[2].text).to eq(dealer1.name)
+
+    click_link('Sort By Cars On Lot')
+   
+    expect(current_path).to eq('/dealerships')
+
+    within("#dealerships")
+    expect(all("#name")[0].text).to eq(dealer1.name)
+    expect(all("#name")[1].text).to eq(dealer2.name)
+    expect(all("#name")[2].text).to eq(dealer3.name)
+  end 
 end 
