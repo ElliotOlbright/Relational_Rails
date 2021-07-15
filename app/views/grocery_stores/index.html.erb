@@ -15,10 +15,17 @@
   </p>
 <% end %>
 
+<p><b>Sort by:</b>
+  <u><%= link_to '# of Groceries', sort: "groceries" %></u>
+</p>
+
 <p><%= link_to 'New Grocery Store', '/grocery_stores/new', class: "button button_create", method: :get %></p>
 <section id="grocery_stores">
 <% @grocery_stores.each do |grocery_store| %>
-  <h2><a href="/grocery_stores/<%= grocery_store.id %>"><%= grocery_store.name %></a></h2>
+  <h2 id="name"><a href="/grocery_stores/<%= grocery_store.id %>">
+    <%= grocery_store.name %></a>
+    <span style="font-size:15px">(<%= grocery_store.groceries.count %> groceries!)</span>
+  </h2>
   <p id="address">Address: <%= grocery_store.address %></p>
   <p>24-hr?: <%= grocery_store.open_24_hours %></p>
   <p># of departments: <%= grocery_store.departments %></p>

@@ -93,5 +93,33 @@ describe 'Grocery Stores index page' do
       expect(page).to have_content('Albertsons')
       expect(page).to_not have_content('State Bros')
     end
+
+    it 'sorts page by number of children descending' do
+      @store1.groceries.create!(
+        name: 'Fishy Bits', price: 7.99, in_stock: true
+      )
+      @store1.groceries.create!(
+        name: 'Cheese Sticks', price: 9.99, in_stock: true
+      )
+      @store1.groceries.create!(
+        name: 'Chicky Tendies', price: 12.99, in_stock: true
+      )
+      @store2.groceries.create!(
+        name: 'Tofu', price: 9.45, in_stock: false
+      )
+      visit '/grocery_stores'
+
+      # Default order: 'created_at' descending
+      within('#grocery_stores') do
+        expect(all("#name")[0].text).to eq("#{@store2.name} (1 groceries!)")
+        expect(all("#name")[1].text).to eq("#{@store1.name} (3 groceries!)")
+      end
+      
+      click_link '# of Groceries'
+      within('#grocery_stores') do
+        expect(all("#name")[0].text).to eq("#{@store1.name} (3 groceries!)")
+        expect(all("#name")[1].text).to eq("#{@store2.name} (1 groceries!)")
+      end
+    end
   end
 end
