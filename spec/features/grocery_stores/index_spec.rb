@@ -14,6 +14,12 @@ describe 'Grocery Stores index page' do
       open_24_hours: true,
       departments: 6
     )
+    @store3 = GroceryStore.create!(
+      name: 'CVS', 
+      address: '4567 Woke Place', 
+      open_24_hours: true,
+      departments: 4
+    )
   end
 
   describe 'navigation' do
@@ -38,19 +44,14 @@ describe 'Grocery Stores index page' do
 
       expect(page).to have_content(@store1.name)
       expect(page).to have_content(@store2.name)
+      expect(page).to have_content(@store3.name)
     end
 
     it 'can dislpay stores from newest to oldest' do 
-      store3 = GroceryStore.create!(
-        name: 'CVS', 
-        address: '4567 Woke Place', 
-        open_24_hours: true,
-      departments: 4
-      )
       visit "/grocery_stores"
 
       within("#grocery_stores") do 
-        expect(all("#address")[0].text).to eq("Address: #{store3.address}")
+        expect(all("#address")[0].text).to eq("Address: #{@store3.address}")
         expect(all("#address")[1].text).to eq("Address: #{@store2.address}")
         expect(all("#address")[2].text).to eq("Address: #{@store1.address}")
       end 
@@ -111,14 +112,17 @@ describe 'Grocery Stores index page' do
 
       # Default order: 'created_at' descending
       within('#grocery_stores') do
-        expect(all("#name")[0].text).to eq("#{@store2.name} (1 groceries!)")
-        expect(all("#name")[1].text).to eq("#{@store1.name} (3 groceries!)")
+        expect(all("#name")[0].text).to eq("#{@store3.name} (0 groceries!)")
+        expect(all("#name")[1].text).to eq("#{@store2.name} (1 groceries!)")
+        expect(all("#name")[2].text).to eq("#{@store1.name} (3 groceries!)")
       end
       
       click_link '# of Groceries'
+      expect(current_path).to eq('/grocery_stores')
       within('#grocery_stores') do
         expect(all("#name")[0].text).to eq("#{@store1.name} (3 groceries!)")
         expect(all("#name")[1].text).to eq("#{@store2.name} (1 groceries!)")
+        expect(all("#name")[2].text).to eq("#{@store3.name} (0 groceries!)")
       end
     end
   end
