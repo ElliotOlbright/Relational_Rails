@@ -6,6 +6,7 @@
 - [Learning Goals](#learning-goals)
 - [Tools Used](#tools-used)
 - [Getting Started](#getting-started)
+- [Features](#features)
 - [Database Schema](#database-schema)
 - [Contributors](#contributors)
 
@@ -47,6 +48,10 @@ The project home page and requirements can be found [here](https://backend.turin
 **Run Rails Server in Command-Line** Run `rails s` in command line.
 
 **Open Web Browser and go to URL *Localhost:3000*** Enjoy the app :)
+
+## Features
+
+From the main page, the user will be able to navigate through either *Car Dealerships* and their *Cars*, or *Grocery Stores* and their *Groceries*.
 
 ## Database Schema
 [![Screen-Shot-2021-07-14-at-8-05-03-PM.png](https://i.postimg.cc/qv7KYrC9/Screen-Shot-2021-07-14-at-8-05-03-PM.png)](https://postimg.cc/PPBNpBy4)
